@@ -3,11 +3,97 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing : antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.ant-collapse-header-text {
+  line-height: 24px;
+  font-weight: 500;
+}
+
+@property --border-angle {
+  syntax       : "<angle>";
+  inherits     : true;
+  initial-value: 0turn;
+}
+
+@keyframes changeBg {
+  0% {
+    background-color: #0958d9;
+  }
+
+  100% {
+    background-color: #ff4d4f;
+  }
+
+}
+
+.ant-input {
+  background: rgba(128, 128, 128, 0.01);
+  color     : #ffffff;
+}
+
+.ant-input::placeholder {
+  color: #ffffff !important;
+}
+
+[title="Mật khẩu"] {
+  color      : #ffffff !important;
+  font-size  : 17px !important;
+  line-height: 25px;
+  font-weight: 500;
+}
+
+[title="Email"] {
+  color      : #ffffff !important;
+  font-size  : 17px !important;
+  line-height: 25px;
+  font-weight: 500;
+}
+[title="Tên tài khoản"] {
+  color      : #ffffff !important;
+  font-size  : 17px !important;
+  line-height: 25px;
+  font-weight: 500;
+}
+[title="Số điện thoại"] {
+  color      : #ffffff !important;
+  font-size  : 17px !important;
+  line-height: 25px;
+  font-weight: 500;
+}
+[title="Xác nhận mật khẩu"] {
+  color      : #ffffff !important;
+  font-size  : 17px !important;
+  line-height: 25px;
+  font-weight: 500;
+}
+[title="Họ và tên"] {
+  color      : #ffffff !important;
+  font-size  : 17px !important;
+  line-height: 25px;
+  font-weight: 500;
+}[title="Địa chỉ"] {
+  color      : #ffffff !important;
+  font-size  : 17px !important;
+  line-height: 25px;
+  font-weight: 500;
+}[title="Yêu cầu"] {
+  color      : #ffffff !important;
+  font-size  : 17px !important;
+  line-height: 25px;
+  font-weight: 500;
+}
+
+@keyframes pulse {
+  100%{
+    transform: scale(2.5);
+    opacity: 0;
+  }
 }

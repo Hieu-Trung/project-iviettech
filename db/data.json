@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "email": "hieutrungpt2007@gmail.com",
+      "password": "$2a$10$JpLHuj7Jma4KI57RISWUfuZA6223Gs2ybYCw3BdioHRc0AHxnArYS",
+      "fullName": "Trần Hiếu Trung",
+      "numberPhone": "0333709228",
+      "createdAt": 1690459459477,
+      "updatedAt": 1690459459478,
+      "id": 1
+    }
+  ]
+}

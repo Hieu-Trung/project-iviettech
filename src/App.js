@@ -1,24 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import { useEffect } from "react";
+import jwtDecode from "jwt-decode";
+import { useDispatch } from "react-redux";
+
+import Introduction from "./pages/Introduction";
+import { ROUTES } from "./constants/routers";
+import Home from "./pages/user/Home";
+import UserLayout from "./layouts/UserLayout";
+import Login from "./pages/Login";
+import HeaderLogin from "./layouts/UserLayout/components/HeaderLogin";
+import Register from "./pages/Register";
+import FormConstruction from "./pages/user/FormConstruction";
+import { getUserInfoRequest } from "./redux/slicers/auth.slice";
 
 function App() {
+const dispatch = useDispatch() 
+
+  useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken");
+    if (accessToken) {
+      const userTokenData = jwtDecode(accessToken);
+      dispatch(
+        getUserInfoRequest({
+          id: parseInt(userTokenData.sub),
+        })
+      );
+    }
+    
+  },[])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route element={<UserLayout />}>
+        <Route path={ROUTES.USER.INTRODUCTION} element={<Introduction />} />
+        <Route path={ROUTES.USER.HOME} element={<Home />} />
+        <Route path={ROUTES.USER.FORMCONSTRUCTION} element={<FormConstruction />} />
+      </Route>
+      <Route element={<HeaderLogin />}>
+        <Route path={ROUTES.LOGIN} element={<Login />} />
+        <Route path={ROUTES.REGISTER} element={<Register />} />
+      </Route>
+      <Route path="*" element={<h1>404 Not Found</h1>} />
+    </Routes>
   );
 }
 
