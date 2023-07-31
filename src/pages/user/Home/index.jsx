@@ -2,7 +2,7 @@ import * as S from "./style";
 import Shipped from "../../../image/shipped.jpg";
 import Maintenance from "../../../image/maintenance.jpg";
 import Product from "../../../image/background.jpg";
-import { Col, Row, Checkbox, Select } from "antd";
+import { Col, Row, Checkbox, Select, Button } from "antd";
 import { PRODUCT_LIMIT } from "../../../constants/pagning";
 import { getProductListRequest } from "../../../redux/slicers/product.slice";
 import { getCategoryListRequest } from "../../../redux/slicers/category.slice";
@@ -75,6 +75,19 @@ const Home = () => {
       })
     );
   };
+
+   const handleShowMore = () => {
+     dispatch(
+       getProductListRequest({
+         ...filterParams,
+         page: productList.meta.page + 1,
+         limit: PRODUCT_LIMIT,
+         more: true,
+       })
+     );
+  };
+  
+
   return (
     <S.homeWrapper>
       <S.titleHomeWrapper>
@@ -141,6 +154,9 @@ const Home = () => {
           <Select.Option value="price.desc">Giảm dần</Select.Option>
         </Select>
         <S.ListProductWrapper>{renderProductList}</S.ListProductWrapper>
+        {productList.data.length !== productList.meta.total && (
+          <Button onClick={() => handleShowMore()}>Hiển thị thêm</Button>
+        )}
       </S.productWrapper>
     </S.homeWrapper>
   );

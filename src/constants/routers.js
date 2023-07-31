@@ -2,7 +2,8 @@ export const ROUTES = {
   USER: {
     INTRODUCTION: "/",
     HOME: "/TrangChu",
-    FORMADVISE: "/TuVanVaBaoGia"
+    FORMADVISE: "/TuVanVaBaoGia",
+    PRODUCT_DETAIL: "/SanPham/:id",
   },
   ADMIN: {
     DASHBOARD: "/admin/dashboard",

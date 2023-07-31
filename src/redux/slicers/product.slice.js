@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   productList: {
     data: [],
+    meta: {},
     loading: false,
     error: null,
   },
@@ -22,9 +23,10 @@ export const productSlice = createSlice({
       state.productList.error = null;
     },
     getProductListSuccess: (state, action) => {
-      const { data } = action.payload;
+      const { data, meta, more } = action.payload;
       state.productList.loading = false;
-      state.productList.data = data;
+      state.productList.data = more ? [...state.productList.data, ...data] :  data;
+      state.productList.meta = meta;
     },
     getProductListFailure: (state, action) => {
       const { error } = action.payload;

@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import HeaderLogin from "./layouts/UserLayout/components/HeaderLogin";
 import Register from "./pages/Register";
 import FormAdvise from "./pages/user/FormAdvise";
+import ProductDetail from "./pages/user/ProductDetail";
 import { getUserInfoRequest } from "./redux/slicers/auth.slice";
 
 function App() {
@@ -34,6 +35,7 @@ const dispatch = useDispatch()
         <Route path={ROUTES.USER.INTRODUCTION} element={<Introduction />} />
         <Route path={ROUTES.USER.HOME} element={<Home />} />
         <Route path={ROUTES.USER.FORMADVISE} element={<FormAdvise />} />
+        <Route path={ROUTES.USER.PRODUCT_DETAIL} element={<ProductDetail />} />
       </Route>
       <Route element={<HeaderLogin />}>
         <Route path={ROUTES.LOGIN} element={<Login />} />
