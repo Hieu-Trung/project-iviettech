@@ -1,6 +1,37 @@
 import * as S from "./style";
-import { Form, Input } from "antd";
+import { Form, Input, message } from "antd";
+import { useDispatch } from "react-redux";
+
+import {adviseRequest} from '../../../redux/slicers/advise.slice'
+
 const FormConstruction = () => {
+  const [messageApi, contextHolder] = message.useMessage();
+  const dispatch = useDispatch();
+  const [adviseForm] = Form.useForm();
+
+  const postAdviseSuccess = () => {
+    messageApi.open({
+      type: "success",
+      content: "Gửi yêu cầu tư vấn thành công",
+    });
+  };
+
+  const handleSubmit = (values) => {
+    dispatch(
+      adviseRequest({
+        data: {
+          fullName: values.fullName,
+          numberPhone: values.numberPhone,
+          address: values.address,
+          request: values.request,
+        },
+        callback: () => {
+          postAdviseSuccess();
+          adviseForm.resetFields();
+        },
+      })
+    );
+  }
   return (
     <S.FormConstructionWrapper>
       <S.BackgroundFormWrapper>
@@ -17,10 +48,13 @@ const FormConstruction = () => {
           tin tại form dưới đây
         </S.SpanWrapper>
         <Form
+          form={adviseForm}
           layout="vertical"
           name="constructionForm"
           style={{ padding: "20px" }}
+          onFinish={(values) => handleSubmit(values)}
         >
+          {contextHolder}
           <Form.Item
             label="Họ và tên"
             name="fullName"
@@ -61,7 +95,7 @@ const FormConstruction = () => {
             <Input.TextArea placeholder="Yêu cầu" />
           </Form.Item>
           <S.ButtonWrapper>
-            <S.BottomFormWrapper>Gửi</S.BottomFormWrapper>
+            <S.BottomFormWrapper >Gửi</S.BottomFormWrapper>
           </S.ButtonWrapper>
         </Form>
       </S.FormWrapper>

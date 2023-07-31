@@ -2,7 +2,7 @@ export const ROUTES = {
   USER: {
     INTRODUCTION: "/",
     HOME: "/TrangChu",
-    FORMCONSTRUCTION: "/TuVanVaBaoGia"
+    FORMADVISE: "/TuVanVaBaoGia"
   },
   ADMIN: {
     DASHBOARD: "/admin/dashboard",

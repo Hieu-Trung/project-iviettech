@@ -3,7 +3,7 @@ import {ROUTES} from '../../../../constants/routers'
 const ButtonConstruction = () => {
     return (
       <S.BoxWrapper>
-        <S.LinkWrapper to={ROUTES.USER.FORMCONSTRUCTION}>
+        <S.LinkWrapper to={ROUTES.USER.FORMADVISE}>
           <S.TitleConstructionWrapper>
             Đăng ký tư vấn và báo giá
           </S.TitleConstructionWrapper>

@@ -9,5 +9,79 @@
       "updatedAt": 1690459459478,
       "id": 1
     }
+  ],
+  "advise": [
+    {
+      "fullName": "Trần Hiếu Trung",
+      "numberPhone": "0333709228",
+      "address": "ewqewq",
+      "createdAt": 1690598000523,
+      "updatedAt": 1690598000523,
+      "id": 1
+    },
+    {
+      "fullName": "Trần Hiếu Trungeqwfre",
+      "numberPhone": "0333709228",
+      "address": "ewds",
+      "createdAt": 1690598017489,
+      "updatedAt": 1690598017489,
+      "id": 2
+    }
+  ],
+  "products": [
+    {
+      "image": "https://scontent-hkg4-1.xx.fbcdn.net/v/t39.30808-6/349863081_598876598978136_7131726362384414737_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_ohc=3WC0GcbHRQ8AX-5iNL4&_nc_ht=scontent-hkg4-1.xx&oh=00_AfCnaaTNWGR8j6c1IRCpNQ3E-Tn6t9iiz82Gp92MABGdfw&oe=64CB9F0B",
+      "name": "Bàn trang điểm",
+      "categoryId": 1,
+      "price": 2500000,
+      "id": 1
+    },
+    {
+      "image": "https://scontent-hkg4-1.xx.fbcdn.net/v/t39.30808-6/349863081_598876598978136_7131726362384414737_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_ohc=3WC0GcbHRQ8AX-5iNL4&_nc_ht=scontent-hkg4-1.xx&oh=00_AfCnaaTNWGR8j6c1IRCpNQ3E-Tn6t9iiz82Gp92MABGdfw&oe=64CB9F0B",
+      "name": "Bàn trang ăn",
+      "categoryId": 1,
+      "price": 3500000,
+      "id": 2
+    },
+    {
+      "image": "https://scontent-hkg4-1.xx.fbcdn.net/v/t39.30808-6/349863081_598876598978136_7131726362384414737_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_ohc=3WC0GcbHRQ8AX-5iNL4&_nc_ht=scontent-hkg4-1.xx&oh=00_AfCnaaTNWGR8j6c1IRCpNQ3E-Tn6t9iiz82Gp92MABGdfw&oe=64CB9F0B",
+      "name": "tủ áo",
+      "categoryId": 2,
+      "price": 2500000,
+      "id": 3
+    },{
+      "image": "https://scontent-hkg4-1.xx.fbcdn.net/v/t39.30808-6/349863081_598876598978136_7131726362384414737_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_ohc=3WC0GcbHRQ8AX-5iNL4&_nc_ht=scontent-hkg4-1.xx&oh=00_AfCnaaTNWGR8j6c1IRCpNQ3E-Tn6t9iiz82Gp92MABGdfw&oe=64CB9F0B",
+      "name": "tủ thờ",
+      "categoryId": 2,
+      "price": 2500000,
+      "id": 4
+    },
+    {
+      "image": "https://scontent-hkg4-1.xx.fbcdn.net/v/t39.30808-6/349863081_598876598978136_7131726362384414737_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_ohc=3WC0GcbHRQ8AX-5iNL4&_nc_ht=scontent-hkg4-1.xx&oh=00_AfCnaaTNWGR8j6c1IRCpNQ3E-Tn6t9iiz82Gp92MABGdfw&oe=64CB9F0B",
+      "name": "tap giường",
+      "categoryId": 3,
+      "price": 2500000,
+      "id": 5
+    },{
+      "image": "https://scontent-hkg4-1.xx.fbcdn.net/v/t39.30808-6/349863081_598876598978136_7131726362384414737_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_ohc=3WC0GcbHRQ8AX-5iNL4&_nc_ht=scontent-hkg4-1.xx&oh=00_AfCnaaTNWGR8j6c1IRCpNQ3E-Tn6t9iiz82Gp92MABGdfw&oe=64CB9F0B",
+      "name": "tap trang điểm",
+      "categoryId": 3,
+      "price": 2500000,
+      "id": 6
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Bàn"
+    },
+    {
+      "id": 2,
+      "name": "tủ"
+    },
+    {
+      "id": 3,
+      "name": "tap"
+    }
   ]
 }

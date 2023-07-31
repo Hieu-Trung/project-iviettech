@@ -10,7 +10,7 @@ import UserLayout from "./layouts/UserLayout";
 import Login from "./pages/Login";
 import HeaderLogin from "./layouts/UserLayout/components/HeaderLogin";
 import Register from "./pages/Register";
-import FormConstruction from "./pages/user/FormConstruction";
+import FormAdvise from "./pages/user/FormAdvise";
 import { getUserInfoRequest } from "./redux/slicers/auth.slice";
 
 function App() {
@@ -33,7 +33,7 @@ const dispatch = useDispatch()
       <Route element={<UserLayout />}>
         <Route path={ROUTES.USER.INTRODUCTION} element={<Introduction />} />
         <Route path={ROUTES.USER.HOME} element={<Home />} />
-        <Route path={ROUTES.USER.FORMCONSTRUCTION} element={<FormConstruction />} />
+        <Route path={ROUTES.USER.FORMADVISE} element={<FormAdvise />} />
       </Route>
       <Route element={<HeaderLogin />}>
         <Route path={ROUTES.LOGIN} element={<Login />} />
