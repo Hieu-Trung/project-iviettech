@@ -1,10 +1,13 @@
-import { put, debounce } from "redux-saga/effects";
+import { put, debounce, takeEvery } from "redux-saga/effects";
 import axios from "axios";
 
 import {
   getProductListRequest,
   getProductListSuccess,
   getProductListFailure,
+  getProductDetailRequest,
+  getProductDetailSuccess,
+  getProductDetailFailure,
 } from "../slicers/product.slice";
 
 function* getProductListSaga(action) {
@@ -37,6 +40,22 @@ function* getProductListSaga(action) {
   }
 }
 
+function* getProductDetailSaga(action) {
+  try {
+    const { id } = action.payload;
+    const result = yield axios.get(`http://localhost:4000/products/${id}`, {
+      params: {
+        _expand: "category",
+      },
+    });
+    yield put(getProductDetailSuccess({ data: result.data }));
+  } catch (e) {
+    yield put(getProductDetailFailure("Đã có lỗi xảy ra!"));
+  }
+}
+
 export default function* productSaga() {
   yield debounce(300, getProductListRequest.type, getProductListSaga);
+    yield takeEvery(getProductDetailRequest.type, getProductDetailSaga);
+
 }

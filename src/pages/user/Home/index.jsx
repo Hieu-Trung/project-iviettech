@@ -6,9 +6,11 @@ import { Col, Row, Checkbox, Select, Button } from "antd";
 import { PRODUCT_LIMIT } from "../../../constants/pagning";
 import { getProductListRequest } from "../../../redux/slicers/product.slice";
 import { getCategoryListRequest } from "../../../redux/slicers/category.slice";
+import { ROUTES } from "../../../constants/routers";
 
 import { useDispatch, useSelector } from "react-redux";
 import { Fragment, useEffect, useMemo, useState } from "react";
+import { Link, generatePath } from "react-router-dom";
 
 const Home = () => {
   const [filterParams, setFilterParams] = useState({
@@ -51,11 +53,13 @@ const Home = () => {
     return productList.data.map((item) => {
       return (
         <S.CardCategoryWrapper key={item.id}>
-          <S.imageProductWrapper src={Product} alt="" />
-          <S.titleProductWrapper>{item.name}</S.titleProductWrapper>
-          <S.priceProductWrapper>
-            {item.price.toLocaleString()} VND
-          </S.priceProductWrapper>
+          <Link to={generatePath(ROUTES.USER.PRODUCT_DETAIL, { id: item.id })}>
+            <S.imageProductWrapper src={Product} alt="" />
+            <S.titleProductWrapper>{item.name}</S.titleProductWrapper>
+            <S.priceProductWrapper>
+              {item.price.toLocaleString()} VNĐ
+            </S.priceProductWrapper>
+          </Link>
         </S.CardCategoryWrapper>
       );
     });
@@ -76,17 +80,16 @@ const Home = () => {
     );
   };
 
-   const handleShowMore = () => {
-     dispatch(
-       getProductListRequest({
-         ...filterParams,
-         page: productList.meta.page + 1,
-         limit: PRODUCT_LIMIT,
-         more: true,
-       })
-     );
+  const handleShowMore = () => {
+    dispatch(
+      getProductListRequest({
+        ...filterParams,
+        page: productList.meta.page + 1,
+        limit: PRODUCT_LIMIT,
+        more: true,
+      })
+    );
   };
-  
 
   return (
     <S.homeWrapper>
