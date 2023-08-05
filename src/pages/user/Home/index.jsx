@@ -56,8 +56,10 @@ const Home = () => {
           <Link to={generatePath(ROUTES.USER.PRODUCT_DETAIL, { id: item.id })}>
             <S.imageProductWrapper src={Product} alt="" />
             <S.titleProductWrapper>{item.name}</S.titleProductWrapper>
+
             <S.priceProductWrapper>
-              {item.price.toLocaleString()} VNĐ
+              <p>{item.price.toLocaleString()} VNĐ</p>
+              <p>{item.reviews.length} danh gia</p>
             </S.priceProductWrapper>
           </Link>
         </S.CardCategoryWrapper>

@@ -23,52 +23,36 @@ export const StyleWrapper = styled.div`
 `;
 
 export const TitleCompanyWrapper = styled.div`
-  display:  flex;
-  flex-direction:  column;
+  display: flex;
+  flex-direction: column;
   padding: 0 10px;
   margin: 0;
   text-align: center;
   justify-content: center;
 `;
-export const CompanyWrapper = styled.div`
-  font-size: 17px;
+export const CompanyWrapper = styled.h1`
+  font-size: 13px;
   font-weight: 700;
   color: #ffffff;
 `;
 export const SloganCompanyWrapper = styled.div`
-  font-size: 15px;
+  font-size: 10px;
   font-weight: 500;
   color: #ffffff;
 `;
-export const DetailAboutWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  cursor: pointer;
-  padding: 0 7px;
-`;
+
 export const TitleWrapper = styled.div`
   font-size: 13px;
   line-height: 16px;
   padding: 0 5px;
   text-align: start;
 `;
-export const AboutWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  border-right: 2px solid #bfbfbf;
-  padding: 0 5px;
-  color: #ffffff;
-  &:hover {
-    color: #1677ff;
-  }
-`;
+
 export const LoginWrapper = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
-  padding: 0 5px;
+  padding: 0 20px;
   color: #ffffff;
   &:hover {
     color: #1677ff;
@@ -79,6 +63,19 @@ export const LinkWrapper = styled(Link)`
   color: #ffffff;
   text-decoration: none;
   &:hover {
+    color: #1677ff;
+  }
+`;
+
+export const CartWrapper = styled.div`
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #fafafa ;
+  padding: 0 20px;
+  cursor: pointer;
+  &:hover{
     color: #1677ff;
   }
 `;

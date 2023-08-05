@@ -26,6 +26,14 @@
       "createdAt": 1690598017489,
       "updatedAt": 1690598017489,
       "id": 2
+    },
+    {
+      "fullName": "huong",
+      "numberPhone": "0333709228",
+      "address": "123123",
+      "createdAt": 1690912821391,
+      "updatedAt": 1690912821391,
+      "id": 3
     }
   ],
   "products": [
@@ -49,7 +57,8 @@
       "categoryId": 2,
       "price": 2500000,
       "id": 3
-    },{
+    },
+    {
       "image": "https://scontent-hkg4-1.xx.fbcdn.net/v/t39.30808-6/349863081_598876598978136_7131726362384414737_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_ohc=3WC0GcbHRQ8AX-5iNL4&_nc_ht=scontent-hkg4-1.xx&oh=00_AfCnaaTNWGR8j6c1IRCpNQ3E-Tn6t9iiz82Gp92MABGdfw&oe=64CB9F0B",
       "name": "tủ thờ",
       "categoryId": 2,
@@ -62,7 +71,8 @@
       "categoryId": 3,
       "price": 2500000,
       "id": 5
-    },{
+    },
+    {
       "image": "https://scontent-hkg4-1.xx.fbcdn.net/v/t39.30808-6/349863081_598876598978136_7131726362384414737_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_ohc=3WC0GcbHRQ8AX-5iNL4&_nc_ht=scontent-hkg4-1.xx&oh=00_AfCnaaTNWGR8j6c1IRCpNQ3E-Tn6t9iiz82Gp92MABGdfw&oe=64CB9F0B",
       "name": "tap trang điểm",
       "categoryId": 3,
@@ -82,6 +92,17 @@
     {
       "id": 3,
       "name": "tap"
+    }
+  ],
+  "reviews": [
+    {
+      "rate": 5,
+      "comment": "123321",
+      "userId": 1,
+      "productId": 2,
+      "createdAt": 1689768339065,
+      "updatedAt": 1689768339065,
+      "id": 1
     }
   ]
 }

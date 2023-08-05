@@ -31,13 +31,15 @@ export const CardConstructionWrapper = styled.div`
   margin: 10px 0;
   border-radius: 10px;
   overflow: hidden;
+  & img {
+    height: 200px;
+    object-fit: "cover";
+    object-position: "center";
+    width: 100%;
+  }
 `;
 
-export const image = styled.div`
-  width: 100%;
-  height: 200px;
-  
-`;
+
 
 export const TitleListWrapper = styled.div`
   white-space: nowrap;

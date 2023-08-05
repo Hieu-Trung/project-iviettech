@@ -154,4 +154,6 @@ export const priceProductWrapper = styled.p`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  display: flex;
+  justify-content: space-between;
 `;

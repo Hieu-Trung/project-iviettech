@@ -13,8 +13,7 @@ export const BotWrapper = styled.div`
   justify-content: center;
   margin: 10px 0;
   cursor: pointer;
-  &::before
-  {
+  &::before {
     content: "";
     width: 70%;
     height: 70%;

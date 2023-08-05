@@ -49,7 +49,10 @@ export const authSlice = createSlice({
       state.registerData.error = error;
     },
     // logout
-    logoutRequest: (state, action) => {},
+    logoutRequest: (state, action) => {
+      localStorage.removeItem("accessToken");
+      state.userInfo.data = {};
+    },
     // getUserInfo
     getUserInfoRequest: (state, action) => {
       state.userInfo.loading = true;
@@ -65,6 +68,7 @@ export const authSlice = createSlice({
       state.userInfo.loading = false;
       state.userInfo.error = error;
     },
+    
   },
 });
 

@@ -4,6 +4,9 @@ import Footer from "./components/Footer";
 import ChatBotMess from "./components/ChatBotMess";
 import ButtonConstruction from "./components/ConstructionButton";
 import ListConstruction from "../../pages/user/ListConstruction";
+import MailBot from "./components/MailBot";
+import MapBot from "./components/MapBot";
+import PhoneBot from "./components/PhoneBot";
 
 import * as S from "./style";
 const UserLayout = () => {
@@ -13,6 +16,9 @@ const UserLayout = () => {
       <S.MainWrapper>
         <Outlet />
         <S.MainButtonWrapper>
+          <PhoneBot/>
+          <MapBot/>
+          <MailBot/>
           <ChatBotMess />
           <ButtonConstruction />
         </S.MainButtonWrapper>
