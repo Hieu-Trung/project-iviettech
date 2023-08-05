@@ -58,8 +58,8 @@ const Home = () => {
             <S.titleProductWrapper>{item.name}</S.titleProductWrapper>
 
             <S.priceProductWrapper>
-              <p>{item.price.toLocaleString()} VNĐ</p>
-              <p>{item.reviews.length} danh gia</p>
+              <span>{item.price.toLocaleString()} VNĐ</span>
+              <span>{item.reviews.length} danh gia</span>
             </S.priceProductWrapper>
           </Link>
         </S.CardCategoryWrapper>

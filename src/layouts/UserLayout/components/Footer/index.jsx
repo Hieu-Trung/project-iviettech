@@ -29,7 +29,7 @@ const Footer = () => {
                 Trang chủ
               </S.LinkWrapper>
               <S.LinkWrapper to={ROUTES.USER.HOME}>Cửa hàng</S.LinkWrapper>
-              <S.LinkWrapper to={ROUTES.USER.FORMCONSTRUCTION}>
+              <S.LinkWrapper to={ROUTES.USER.FORMADVISE}>
                 Tư vấn
               </S.LinkWrapper>
 

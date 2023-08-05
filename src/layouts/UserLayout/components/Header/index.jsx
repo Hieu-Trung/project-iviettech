@@ -1,7 +1,7 @@
 import * as S from "./style";
 
 import { useSelector, useDispatch } from "react-redux";
-import { Dropdown, Row } from "antd";
+import { Dropdown, Row, Badge } from "antd";
 import { BsFillCartCheckFill } from "react-icons/bs";
 import { AiOutlineUser } from "react-icons/ai";
 
@@ -27,7 +27,11 @@ const Header = () => {
         </S.StyleWrapper>
         <S.StyleWrapper>
           <S.CartWrapper>
-            <BsFillCartCheckFill />
+            <Badge count={4}>
+              <S.LinkWrapper to={ROUTES.USER.CART}>
+                <BsFillCartCheckFill />
+              </S.LinkWrapper>
+            </Badge>
           </S.CartWrapper>
           <S.LoginWrapper>
             <AiOutlineUser />

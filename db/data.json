@@ -34,6 +34,14 @@
       "createdAt": 1690912821391,
       "updatedAt": 1690912821391,
       "id": 3
+    },
+    {
+      "fullName": "Trần Hiếu Trung",
+      "numberPhone": "0333709228",
+      "address": "ewqewq",
+      "createdAt": 1691247433170,
+      "updatedAt": 1691247433171,
+      "id": 4
     }
   ],
   "products": [
@@ -96,13 +104,67 @@
   ],
   "reviews": [
     {
-      "rate": 5,
-      "comment": "123321",
+      "rate": 3,
+      "comment": "asdas",
       "userId": 1,
       "productId": 2,
-      "createdAt": 1689768339065,
-      "updatedAt": 1689768339065,
-      "id": 1
+      "createdAt": 1691224105491,
+      "updatedAt": 1691224105491,
+      "id": 3
+    },
+    {
+      "rate": 4,
+      "comment": "sw",
+      "userId": 1,
+      "productId": 2,
+      "createdAt": 1691246704537,
+      "updatedAt": 1691246704538,
+      "id": 5
+    },
+    {
+      "rate": 0,
+      "comment": "eds",
+      "userId": 1,
+      "productId": 2,
+      "createdAt": 1691246876423,
+      "updatedAt": 1691246876423,
+      "id": 6
+    },
+    {
+      "rate": 4,
+      "comment": "aSAs",
+      "userId": 1,
+      "productId": 2,
+      "createdAt": 1691246930683,
+      "updatedAt": 1691246930683,
+      "id": 7
+    },
+    {
+      "rate": 0,
+      "comment": "sd",
+      "userId": 1,
+      "productId": 2,
+      "createdAt": 1691247035908,
+      "updatedAt": 1691247035908,
+      "id": 8
+    },
+    {
+      "rate": 0,
+      "comment": "das",
+      "userId": 1,
+      "productId": 1,
+      "createdAt": 1691248831183,
+      "updatedAt": 1691248831183,
+      "id": 9
+    },
+    {
+      "rate": 0,
+      "comment": "da",
+      "userId": 1,
+      "productId": 1,
+      "createdAt": 1691248915289,
+      "updatedAt": 1691248915289,
+      "id": 10
     }
   ]
 }

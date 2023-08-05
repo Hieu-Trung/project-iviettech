@@ -5,6 +5,7 @@ import authReducer from "./redux/slicers/auth.slice";
 import adviseReducer from "./redux/slicers/advise.slice"
 import productReducer from "./redux/slicers/product.slice"
 import categoryReducer from "./redux/slicers/category.slice";
+import reviewReducer from "./redux/slicers/review.slice";
 
 import rootSaga from "./redux/sagas";
 
@@ -16,6 +17,7 @@ const store = configureStore({
     advise: adviseReducer,
     product: productReducer,
     category: categoryReducer,
+    review: reviewReducer,
   },
   middleware: (getDefaultMiddleware) => [
     ...getDefaultMiddleware({

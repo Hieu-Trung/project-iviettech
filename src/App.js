@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import jwtDecode from "jwt-decode";
 import { useDispatch } from "react-redux";
@@ -13,9 +13,11 @@ import Register from "./pages/Register";
 import FormAdvise from "./pages/user/FormAdvise";
 import ProductDetail from "./pages/user/ProductDetail";
 import UserInfo from "./pages/user/UserInfo";
+import Cart from "./pages/user/Cart";
 import { getUserInfoRequest } from "./redux/slicers/auth.slice";
 
 function App() {
+  const { pathname } = useLocation();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -29,6 +31,11 @@ function App() {
       );
     }
   }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <Routes>
       <Route element={<UserLayout />}>
@@ -37,6 +44,7 @@ function App() {
         <Route path={ROUTES.USER.FORMADVISE} element={<FormAdvise />} />
         <Route path={ROUTES.USER.PRODUCT_DETAIL} element={<ProductDetail />} />
         <Route path={ROUTES.USER.USER_INFO} element={<UserInfo />} />
+        <Route path={ROUTES.USER.CART} element={<Cart />} />
       </Route>
       <Route element={<HeaderLogin />}>
         <Route path={ROUTES.LOGIN} element={<Login />} />
