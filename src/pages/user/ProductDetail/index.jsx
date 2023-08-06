@@ -1,17 +1,27 @@
 import * as S from "./style";
 import { getProductDetailRequest } from "../../../redux/slicers/product.slice";
+import { addToCartRequest } from "../../../redux/slicers/cart.slice";
 import {
   createReviewRequest,
   getReviewListRequest,
 } from "../../../redux/slicers/review.slice";
 
 import { useParams } from "react-router-dom";
-import { Col, Input, Button, Form, Rate } from "antd";
-import { useEffect, useMemo } from "react";
+import {
+  Col,
+  Input,
+  InputNumber,
+  Button,
+  Form,
+  Rate,
+  notification,
+} from "antd";
+import { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment/moment";
 
 const ProductDetail = () => {
+  const [quantity, setQuantity] = useState(1);
   const { id } = useParams();
   const dispatch = useDispatch();
   const [reviewForm] = Form.useForm();
@@ -61,6 +71,21 @@ const ProductDetail = () => {
     [reviewList.data]
   );
 
+  const handleAddToCart = () => {
+    dispatch(
+      addToCartRequest({
+        data: {
+          //ảnh
+          productId: productDetail.data.id,
+          name: productDetail.data.name,
+          price: productDetail.data.price,
+          quantity: quantity,
+        },
+      })
+    );
+    notification.success({ message: "Bỏ vào giỏ thành công" });
+  };
+
   return (
     <>
       <S.productDetailWrapper>
@@ -73,8 +98,12 @@ const ProductDetail = () => {
           <span>{`(${averageRate})`}</span>
           <p>{productDetail.data.price?.toLocaleString()} VNĐ</p>
           <p>{productDetail.data.category?.name}</p>
-          <Input type="number"></Input>
-          <Button>Tem gio</Button>
+          <InputNumber
+            value={quantity}
+            onChange={(value) => setQuantity(value)}
+            min={1}
+          ></InputNumber>
+          <Button onClick={() => handleAddToCart()}>Tem gio</Button>
         </Col>
       </S.productDetailWrapper>
       {userInfo.data.id && (

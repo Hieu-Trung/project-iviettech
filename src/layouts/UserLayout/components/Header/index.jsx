@@ -11,6 +11,7 @@ import { logoutRequest } from "../../../../redux/slicers/auth.slice";
 
 const Header = () => {
   const { userInfo } = useSelector((state) => state.auth);
+  const { cartList } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
   return (
@@ -27,11 +28,11 @@ const Header = () => {
         </S.StyleWrapper>
         <S.StyleWrapper>
           <S.CartWrapper>
-            <Badge count={4}>
-              <S.LinkWrapper to={ROUTES.USER.CART}>
+            <S.LinkWrapper to={ROUTES.USER.CART}>
+              <Badge count={cartList.length}>
                 <BsFillCartCheckFill />
-              </S.LinkWrapper>
-            </Badge>
+              </Badge>
+            </S.LinkWrapper>
           </S.CartWrapper>
           <S.LoginWrapper>
             <AiOutlineUser />
