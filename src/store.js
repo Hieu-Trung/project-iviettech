@@ -7,6 +7,7 @@ import productReducer from "./redux/slicers/product.slice";
 import categoryReducer from "./redux/slicers/category.slice";
 import reviewReducer from "./redux/slicers/review.slice";
 import cartReducer from "./redux/slicers/cart.slice";
+import commonReducer from "./redux/slicers/common.slice";
 
 import rootSaga from "./redux/sagas";
 
@@ -20,6 +21,7 @@ const store = configureStore({
     category: categoryReducer,
     review: reviewReducer,
     cart: cartReducer,
+    common: commonReducer,
   },
   middleware: (getDefaultMiddleware) => [
     ...getDefaultMiddleware({

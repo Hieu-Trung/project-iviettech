@@ -13,6 +13,7 @@ import Register from "./pages/Register";
 import FormAdvise from "./pages/user/FormAdvise";
 import ProductDetail from "./pages/user/ProductDetail";
 import UserInfo from "./pages/user/UserInfo";
+import Checkout from "./pages/user/Checkout";
 import Cart from "./pages/user/Cart";
 import { getUserInfoRequest } from "./redux/slicers/auth.slice";
 
@@ -45,6 +46,7 @@ function App() {
         <Route path={ROUTES.USER.PRODUCT_DETAIL} element={<ProductDetail />} />
         <Route path={ROUTES.USER.USER_INFO} element={<UserInfo />} />
         <Route path={ROUTES.USER.CART} element={<Cart />} />
+        <Route path={ROUTES.USER.CHECKOUT} element={<Checkout />} />
       </Route>
       <Route element={<HeaderLogin />}>
         <Route path={ROUTES.LOGIN} element={<Login />} />

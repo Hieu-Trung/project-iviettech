@@ -6,27 +6,26 @@ import { Col, Row, Checkbox, Select, Button } from "antd";
 import { PRODUCT_LIMIT } from "../../../constants/pagning";
 import { getProductListRequest } from "../../../redux/slicers/product.slice";
 import { getCategoryListRequest } from "../../../redux/slicers/category.slice";
+import { setFilterParams } from "../../../redux/slicers/common.slice";
 import { ROUTES } from "../../../constants/routers";
 
 import { useDispatch, useSelector } from "react-redux";
-import { Fragment, useEffect, useMemo, useState } from "react";
-import { Link, generatePath } from "react-router-dom";
+import { Fragment, useEffect, useMemo } from "react";
+import { Link, generatePath, useNavigate } from "react-router-dom";
+import qs from "qs";
 
 const Home = () => {
-  const [filterParams, setFilterParams] = useState({
-    categoryId: [],
-    keyword: "",
-    order: "",
-  });
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const { productList } = useSelector((state) => state.product);
   const { categoryList } = useSelector((state) => state.category);
+  const { filterParams } = useSelector((state) => state.common);
 
   useEffect(() => {
     dispatch(
       getProductListRequest({
+        ...filterParams,
         page: 1,
         limit: PRODUCT_LIMIT,
       })
@@ -67,19 +66,23 @@ const Home = () => {
     });
   }, [productList.data]);
 
-  const handleFilter = (key, values) => {
-    setFilterParams({
+  const handleFilter = (key, value) => {
+    const newFilterParams = {
       ...filterParams,
-      [key]: values,
-    });
+      [key]: value,
+    };
+    dispatch(setFilterParams(newFilterParams));
     dispatch(
       getProductListRequest({
-        ...filterParams,
-        [key]: values,
+        ...newFilterParams,
         page: 1,
         limit: PRODUCT_LIMIT,
       })
     );
+    navigate({
+      pathname: ROUTES.USER.HOME,
+      search: qs.stringify(newFilterParams),
+    });
   };
 
   const handleShowMore = () => {
@@ -126,10 +129,8 @@ const Home = () => {
                   handleFilter("keyword", e.target.value);
                 }}
                 placeholder="Tìm kiếm ..."
+                value={filterParams.keyword}
               />
-              <S.buttonSearchWrapper type="submit">
-                Search
-              </S.buttonSearchWrapper>
             </S.searchWrapper>
           </Col>
         </Row>
@@ -141,6 +142,7 @@ const Home = () => {
         <S.ListCategoryWrapper>
           <Checkbox.Group
             onChange={(values) => handleFilter("categoryId", values)}
+            value={filterParams.categoryId}
           >
             {renderCategoryList}
           </Checkbox.Group>
@@ -154,6 +156,7 @@ const Home = () => {
           onChange={(value) => {
             handleFilter("sort", value);
           }}
+          value={filterParams.sort}
         >
           <Select.Option value="price.asc">Tăng dần</Select.Option>
           <Select.Option value="price.desc">Giảm dần</Select.Option>

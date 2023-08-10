@@ -63,15 +63,6 @@ export const inputSearchWrapper = styled.input`
   }
 `;
 
-export const buttonSearchWrapper = styled.div`
-  border: unset;
-  margin: auto;
-  padding: 20px;
-  cursor: pointer;
-  font-size: 17px;
-  line-height: 25px;
-  font-weight: 500;
-`;
 export const categoryWrapper = styled.div`
   background-color: #fafafa;
   border-radius: 5px;
@@ -144,7 +135,7 @@ export const titleProductWrapper = styled.div`
   text-overflow: ellipsis;
   font-size: 20px;
   font-weight: 500;
-  padding: 10px 5px 5px ;
+  padding: 10px 5px 5px;
 `;
 
 export const priceProductWrapper = styled.p`
