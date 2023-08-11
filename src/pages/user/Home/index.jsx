@@ -53,7 +53,7 @@ const Home = () => {
       return (
         <S.CardCategoryWrapper key={item.id}>
           <Link to={generatePath(ROUTES.USER.PRODUCT_DETAIL, { id: item.id })}>
-            <S.imageProductWrapper src={Product} alt="" />
+            <S.imageProductWrapper src={item.image} alt="" />
             <S.titleProductWrapper>{item.name}</S.titleProductWrapper>
 
             <S.priceProductWrapper>

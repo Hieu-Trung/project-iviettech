@@ -5,6 +5,10 @@ import {
   createReviewRequest,
   getReviewListRequest,
 } from "../../../redux/slicers/review.slice";
+import {
+  favoriteProductRequest,
+  unFavoriteProductRequest,
+} from "../../../redux/slicers/favorite.slice";
 
 import { useParams } from "react-router-dom";
 import {
@@ -19,6 +23,7 @@ import {
 import { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment/moment";
+import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 
 const ProductDetail = () => {
   const [quantity, setQuantity] = useState(1);
@@ -71,6 +76,19 @@ const ProductDetail = () => {
     [reviewList.data]
   );
 
+  const isFavorite = useMemo(
+    () =>
+      productDetail.data.favorites?.some(
+        (item) => item.userId === userInfo.data.id
+      ),
+    [productDetail.data.favorites, userInfo.data.id]
+  );
+  console.log(productDetail.data.favorites);
+  useEffect(() => {
+    dispatch(getProductDetailRequest({ id: parseInt(id) }));
+    dispatch(getReviewListRequest({ productId: parseInt(id) }));
+  }, []);
+
   const handleAddToCart = () => {
     dispatch(
       addToCartRequest({
@@ -84,6 +102,32 @@ const ProductDetail = () => {
       })
     );
     notification.success({ message: "Bỏ vào giỏ thành công" });
+  };
+
+  const handleToggleFavorite = () => {
+    if (userInfo.data.id) {
+      if (isFavorite) {
+        const favoriteData = productDetail.data.favorites?.find(
+          (item) => item.userId === userInfo.data.id
+        );
+        dispatch(
+          unFavoriteProductRequest({
+            id: favoriteData.id,
+          })
+        );
+      } else {
+        dispatch(
+          favoriteProductRequest({
+            productId: productDetail.data.id,
+            userId: userInfo.data.id,
+          })
+        );
+      }
+    } else {
+      notification.error({
+        message: "Vui lòng đăng nhập để thực hiện chức năng này!",
+      });
+    }
   };
 
   return (
@@ -104,6 +148,18 @@ const ProductDetail = () => {
             min={1}
           ></InputNumber>
           <Button onClick={() => handleAddToCart()}>Tem gio</Button>
+          <Button
+            type="text"
+            icon={
+              isFavorite ? (
+                <HeartFilled style={{ fontSize: 24, color: "red" }} />
+              ) : (
+                <HeartOutlined style={{ fontSize: 24, color: "#414141" }} />
+              )
+            }
+            onClick={() => handleToggleFavorite()}
+          ></Button>
+          {productDetail.data?.favorites?.length || 0} Lượt thích
         </Col>
       </S.productDetailWrapper>
       {userInfo.data.id && (

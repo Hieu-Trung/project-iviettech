@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Dropdown, Row, Badge } from "antd";
 import { BsFillCartCheckFill } from "react-icons/bs";
 import { AiOutlineUser } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 import Logo from "../../../../image/logo.png";
 import { ROUTES } from "../../../../constants/routers";
@@ -13,6 +14,7 @@ const Header = () => {
   const { userInfo } = useSelector((state) => state.auth);
   const { cartList } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   return (
     <Row>
@@ -43,6 +45,7 @@ const Header = () => {
                     {
                       key: 1,
                       label: "Thông tin cá nhân",
+                      onClick: () => navigate(ROUTES.USER.PROFILE),
                     },
                     {
                       key: 2,
@@ -52,11 +55,7 @@ const Header = () => {
                   ],
                 }}
               >
-                <S.TitleWrapper>
-                  <S.LinkWrapper to={ROUTES.USER.USER_INFO}>
-                    {userInfo.data.fullName}
-                  </S.LinkWrapper>
-                </S.TitleWrapper>
+                <S.TitleWrapper>{userInfo.data.fullName}</S.TitleWrapper>
               </Dropdown>
             ) : (
               <S.TitleWrapper>

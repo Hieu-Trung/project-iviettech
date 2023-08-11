@@ -4,9 +4,9 @@ export const ROUTES = {
     HOME: "/TrangChu",
     FORMADVISE: "/TuVanVaBaoGia",
     PRODUCT_DETAIL: "/SanPham/:id",
-    USER_INFO: "/ThongTinTaiKhoan",
     CART: "/GioHang",
     CHECKOUT: "/ThanhToan",
+    PROFILE: "/ThongTinTaiKhoan",
   },
   ADMIN: {
     DASHBOARD: "/admin/dashboard",

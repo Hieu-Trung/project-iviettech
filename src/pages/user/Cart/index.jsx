@@ -100,7 +100,7 @@ const Cart = () => {
         <Button
           type="primary"
           disabled={cartList.length === 0}
-          onClick={() => navigate()}
+          onClick={() => navigate(ROUTES.USER.CHECKOUT)}
         >
           Tiếp theo
         </Button>

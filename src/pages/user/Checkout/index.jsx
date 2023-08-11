@@ -1,8 +1,8 @@
 import * as S from "./style";
+
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-
 import {
   Form,
   Button,
@@ -16,10 +16,25 @@ import {
   Table,
 } from "antd";
 
+import {
+  getCityListRequest,
+  getDistrictListRequest,
+  getWardListRequest,
+} from "../../../redux/slicers/location.slice";
+import { orderProductRequest } from "../../../redux/slicers/order.slice";
+
+import { ROUTES } from "../../../constants/routers";
+
 const Checkout = () => {
   const [checkoutForm] = Form.useForm();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const { cartList } = useSelector((state) => state.cart);
+  const { cityList, districtList, wardList } = useSelector(
+    (state) => state.location
+  );
+
   const { userInfo } = useSelector((state) => state.auth);
 
   const initialValues = {
@@ -27,13 +42,95 @@ const Checkout = () => {
     email: userInfo.data.email,
     phoneNumber: userInfo.data.numberPhone,
   };
-  console.log(initialValues);
 
+  const tableColumn = [
+    {
+      title: "Name",
+      dataIndex: "name",
+      key: "name",
+    },
+    {
+      title: "Quantity",
+      dataIndex: "quantity",
+      key: "quantity",
+    },
+    {
+      title: "Total",
+      dataIndex: "total",
+      key: "total",
+      render: (_, item) =>
+        `${(item.price * item.quantity).toLocaleString()} VND`,
+    },
+  ];
+
+  useEffect(() => {
+    dispatch(getCityListRequest());
+  }, []);
+
+  // check info user
   useEffect(() => {
     if (userInfo.data.id) {
       checkoutForm.resetFields();
     }
   }, [userInfo.data]);
+
+  const handleSubmitCheckoutForm = (values) => {
+    const totalPrice = cartList.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
+    const { cityCode, districtCode, wardCode } = values;
+    const cityData = cityList.data.find((item) => item.code === cityCode);
+    const districtData = districtList.data.find(
+      (item) => item.code === districtCode
+    );
+    const wardData = wardList.data.find((item) => item.code === wardCode);
+    dispatch(
+      orderProductRequest({
+        data: {
+          ...values,
+          cityName: cityData?.name,
+          districtName: districtData?.name,
+          wardName: wardData?.name,
+          userId: userInfo.data.id,
+          totalPrice: totalPrice,
+          status: "pending",
+        },
+        products: cartList,
+        callback: () => navigate(ROUTES.USER.HOME),
+      })
+    );
+  };
+
+  const renderCityOptions = useMemo(() => {
+    return cityList.data.map((item) => {
+      return (
+        <Select.Option key={item.id} value={item.code}>
+          {item.name}
+        </Select.Option>
+      );
+    });
+  }, [cityList.data]);
+
+  const renderDistrictOptions = useMemo(() => {
+    return districtList.data.map((item) => {
+      return (
+        <Select.Option key={item.id} value={item.code}>
+          {item.name}
+        </Select.Option>
+      );
+    });
+  }, [districtList.data]);
+
+  const renderWardListOptions = useMemo(() => {
+    return wardList.data.map((item) => {
+      return (
+        <Select.Option key={item.id} value={item.code}>
+          {item.name}
+        </Select.Option>
+      );
+    });
+  }, [wardList.data]);
 
   return (
     <S.CheckoutWrapper>
@@ -45,7 +142,7 @@ const Checkout = () => {
             form={checkoutForm}
             layout="vertical"
             initialValues={initialValues}
-            //   onFinish={(values) => handleSubmitCheckoutForm(values)}
+            onFinish={(values) => handleSubmitCheckoutForm(values)}
           >
             <Card
               size="small"
@@ -88,14 +185,14 @@ const Checkout = () => {
                   >
                     <Select
                       onChange={(value) => {
-                        //   dispatch(getDistrictListRequest({ cityCode: value }));
-                        //   checkoutForm.setFieldsValue({
-                        //     districtCode: undefined,
-                        //     wardCode: undefined,
-                        //   });
+                        dispatch(getDistrictListRequest({ cityCode: value }));
+                        checkoutForm.setFieldsValue({
+                          districtCode: undefined,
+                          wardCode: undefined,
+                        });
                       }}
                     >
-                      {/* {renderCityOptions} */}
+                      {renderCityOptions}
                     </Select>
                   </Form.Item>
                 </Col>
@@ -107,14 +204,14 @@ const Checkout = () => {
                   >
                     <Select
                       onChange={(value) => {
-                        //   dispatch(getWardListRequest({ districtCode: value }));
-                        //   checkoutForm.setFieldsValue({
-                        //     wardCode: undefined,
-                        //   });
+                        dispatch(getWardListRequest({ districtCode: value }));
+                        checkoutForm.setFieldsValue({
+                          wardCode: undefined,
+                        });
                       }}
-                      // disabled={!checkoutForm.getFieldValue("cityCode")}
+                      disabled={!checkoutForm.getFieldValue("cityCode")}
                     >
-                      {/* {renderDistrictOptions} */}
+                      {renderDistrictOptions}
                     </Select>
                   </Form.Item>
                 </Col>
@@ -125,9 +222,9 @@ const Checkout = () => {
                     rules={[{ required: true, message: "Required!" }]}
                   >
                     <Select
-                    // disabled={!checkoutForm.getFieldValue("districtCode")}
+                      disabled={!checkoutForm.getFieldValue("districtCode")}
                     >
-                      {/* {renderWardListOptions} */}
+                      {renderWardListOptions}
                     </Select>
                   </Form.Item>
                 </Col>
@@ -156,8 +253,7 @@ const Checkout = () => {
                   >
                     <Radio.Group>
                       <Space direction="vertical">
-                        <Radio value="cod">COD</Radio>
-                        <Radio value="atm">ATM</Radio>
+                        <Radio value="cod">Thanh toán khi nhận hàng</Radio>
                       </Space>
                     </Radio.Group>
                   </Form.Item>
@@ -177,8 +273,8 @@ const Checkout = () => {
           <Card size="small" title="Giỏ hàng" style={{ marginBottom: 24 }}>
             <Table
               size="small"
-              // columns={tableColumn}
-              // dataSource={cartList}
+              columns={tableColumn}
+              dataSource={cartList}
               rowKey="id"
               pagination={false}
             />
