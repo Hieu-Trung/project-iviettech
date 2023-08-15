@@ -1,4 +1,6 @@
 import { styled } from "styled-components";
+import { Link } from "react-router-dom";
+import Sale from "../../../image/sale.jpg";
 
 export const homeWrapper = styled.div`
   width: 100%;
@@ -14,6 +16,9 @@ export const titleHomeWrapper = styled.div`
   margin: 10px;
   border-radius: 10px;
   background-color: #f2f2f2;
+  & Col {
+    margin: 20px 0;
+  }
 `;
 
 export const shippedWrapper = styled.div`
@@ -28,6 +33,11 @@ export const imageShippedWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 10px;
+  @media only screen and (max-width: 37.5em) {
+    width: 60px;
+    height: 60px;
+  }
 `;
 
 export const titleShippedWrapper = styled.div`
@@ -36,6 +46,17 @@ export const titleShippedWrapper = styled.div`
   align-items: flex-start;
   justify-content: center;
   padding: 10px;
+  h3,
+  p {
+    padding: 5px 0;
+    margin: 0;
+    @media only screen and (max-width: 37.5em) {
+      font-size: 1em;
+    }
+    @media only screen and (max-width: 28.125em) {
+      font-size: 0.8em;
+    }
+  }
 `;
 
 export const imageMaintenanceWrapper = styled.div`
@@ -47,13 +68,21 @@ export const imageMaintenanceWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 10px;
+  @media only screen and (max-width: 37.5em) {
+    width: 60px;
+    height: 60px;
+  }
 `;
 
 export const searchWrapper = styled.div`
-  padding: 0 50px;
+  padding: 0 10px;
   height: 100%;
   display: flex;
   align-items: center;
+  @media only screen and (max-width: 62.5em) {
+    padding: 20px 10px;
+  }
 `;
 
 export const inputSearchWrapper = styled.input`
@@ -95,7 +124,7 @@ export const ListCategoryWrapper = styled.div`
   margin: 0 10px;
 `;
 export const productWrapper = styled.div`
-  background-color: #f2f2f2;
+  background-color: #ffffff;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
   margin: 20px 10px;
   padding: 20px;
@@ -118,20 +147,22 @@ export const ListProductWrapper = styled.div`
 export const imageProductWrapper = styled.img`
   width: 200px;
   height: 200px;
-  margin: auto;
+  margin: 10px auto;
   display: block;
 `;
 
 export const CardCategoryWrapper = styled.div`
   width: 250px;
-  background-color: #f5f5f5;
-  height: 300px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
-    rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
-    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+  background-color: #f2f2f2;
+  height: 350px;
   margin: 10px 0;
   border-radius: 10px;
   overflow: hidden;
+`;
+
+export const LinkWrapper = styled(Link)`
+  color: #000000;
+  text-decoration: none;
 `;
 
 export const titleProductWrapper = styled.div`
@@ -140,16 +171,64 @@ export const titleProductWrapper = styled.div`
   text-overflow: ellipsis;
   font-size: 20px;
   font-weight: 500;
-  padding: 10px 5px 5px;
+  padding: 0 5px;
 `;
 
-export const priceProductWrapper = styled.p`
-  font-size: 15px;
-  font-weight: 400;
-  padding: 0 5px;
+export const priceProductWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+`;
+
+export const PriceWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: 15px;
+  font-weight: 400;
+  height: 50px;
+  justify-content: center;
+`;
+export const PriceOldWrapper = styled.span`
+  text-decoration: line-through;
+  padding: 5px 0;
+`;
+export const PriceSaleWrapper = styled.span`
+  color: red;
+`;
+
+export const PricePercentrapper = styled.div`
+  background-image: url(${Sale});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const DetailProductWrapper = styled.div`
+  padding: 10px;
   display: flex;
   justify-content: space-between;
+  align-self: center;
+`;
+export const CommentProductWrapper = styled.div`
+  display: flex;
+  align-items: center;
+
+  & span {
+    padding: 0 10px;
+  }
+`;
+export const HeartProductWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  & span {
+    padding: 0 10px;
+  }
 `;

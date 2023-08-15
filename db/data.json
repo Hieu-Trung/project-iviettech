@@ -50,6 +50,7 @@
       "name": "Bàn trang điểm",
       "categoryId": 1,
       "price": 2500000,
+      "salePrice": 2000000,
       "id": 1
     },
     {
@@ -57,6 +58,7 @@
       "name": "Bàn trang điểm cửa lùa",
       "categoryId": 1,
       "price": 3500000,
+      "salePrice": 2000000,
       "id": 2
     },
     {
@@ -64,6 +66,7 @@
       "name": "tủ áo",
       "categoryId": 2,
       "price": 2500000,
+      "salePrice": 2000000,
       "id": 3
     },
     {
@@ -71,6 +74,7 @@
       "name": "tủ thờ",
       "categoryId": 2,
       "price": 2500000,
+      "salePrice": 2000000,
       "id": 4
     },
     {
@@ -78,6 +82,7 @@
       "name": "tap giường",
       "categoryId": 3,
       "price": 2500000,
+      "salePrice": 2000000,
       "id": 5
     },
     {
@@ -85,6 +90,7 @@
       "name": "tap trang điểm",
       "categoryId": 3,
       "price": 2500000,
+      "salePrice": 2000000,
       "id": 6
     }
   ],

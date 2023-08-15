@@ -1,17 +1,19 @@
 import * as S from "./style";
+
 import Shipped from "../../../image/shipped.jpg";
 import Maintenance from "../../../image/maintenance.jpg";
-import { Col, Row, Checkbox, Select, Button } from "antd";
 import { PRODUCT_LIMIT } from "../../../constants/pagning";
 import { getProductListRequest } from "../../../redux/slicers/product.slice";
 import { getCategoryListRequest } from "../../../redux/slicers/category.slice";
 import { setFilterParams } from "../../../redux/slicers/common.slice";
 import { ROUTES } from "../../../constants/routers";
+import qs from "qs";
 
 import { useDispatch, useSelector } from "react-redux";
 import { Fragment, useEffect, useMemo } from "react";
-import { Link, generatePath, useNavigate } from "react-router-dom";
-import qs from "qs";
+import { generatePath, useNavigate } from "react-router-dom";
+import { AiOutlineComment, AiOutlineHeart } from "react-icons/ai";
+import { Col, Row, Checkbox, Select, Button } from "antd";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -51,14 +53,36 @@ const Home = () => {
     return productList.data.map((item) => {
       return (
         <S.CardCategoryWrapper key={item.id}>
-          <Link to={generatePath(ROUTES.USER.PRODUCT_DETAIL, { id: item.id })}>
+          <S.LinkWrapper
+            to={generatePath(ROUTES.USER.PRODUCT_DETAIL, { id: item.id })}
+          >
             <S.imageProductWrapper src={item.image} alt="" />
             <S.titleProductWrapper>{item.name}</S.titleProductWrapper>
             <S.priceProductWrapper>
-              <span>{item.price.toLocaleString()} VNĐ</span>
-              <span>{item.reviews.length} danh gia</span>
+              <S.PriceWrapper>
+                <S.PriceOldWrapper>
+                  Giá: {item.price.toLocaleString()} VNĐ
+                </S.PriceOldWrapper>
+                <S.PriceSaleWrapper>
+                  Sale: {item.salePrice.toLocaleString()} VNĐ
+                </S.PriceSaleWrapper>
+              </S.PriceWrapper>
+              <S.PricePercentrapper>
+                {(((item.price - item.salePrice) / item.price) * 100).toFixed()}
+              </S.PricePercentrapper>
             </S.priceProductWrapper>
-          </Link>
+            <S.DetailProductWrapper>
+              <S.CommentProductWrapper>
+                <span>{item.reviews.length}</span>
+                <AiOutlineComment fontSize={20} />
+              </S.CommentProductWrapper>
+
+              <S.HeartProductWrapper>
+                <span>{item.favorites.length}</span>
+                <AiOutlineHeart fontSize={20} />
+              </S.HeartProductWrapper>
+            </S.DetailProductWrapper>
+          </S.LinkWrapper>
         </S.CardCategoryWrapper>
       );
     });
@@ -98,29 +122,29 @@ const Home = () => {
     <S.homeWrapper>
       <S.titleHomeWrapper>
         <Row>
-          <Col span={6}>
+          <Col lg={6} md={12} sm={12} xs={12}>
             <S.shippedWrapper>
               <S.imageShippedWrapper>
-                <img src={Shipped} width={50} height={50} alt="" />
+                <img src={Shipped} alt="" />
               </S.imageShippedWrapper>
               <S.titleShippedWrapper>
-                <h3 style={{ padding: "3px 0", margin: "0" }}>Vận Chuyển</h3>
-                <p style={{ padding: "3px 0", margin: "0" }}>Từ 1 - 2 ngày</p>
+                <h3>Vận Chuyển</h3>
+                <p>Từ 1 - 2 ngày</p>
               </S.titleShippedWrapper>
             </S.shippedWrapper>
           </Col>
-          <Col span={6}>
+          <Col lg={6} md={12} sm={12} xs={12}>
             <S.shippedWrapper>
               <S.imageMaintenanceWrapper>
-                <img src={Maintenance} width={50} height={50} alt="" />
+                <img src={Maintenance} alt="" />
               </S.imageMaintenanceWrapper>
               <S.titleShippedWrapper>
-                <h3 style={{ padding: "3px 0", margin: "0" }}>Bảo Hành</h3>
-                <p style={{ padding: "3px 0", margin: "0" }}>12 Tháng</p>
+                <h3>Bảo Hành</h3>
+                <p>12 Tháng</p>
               </S.titleShippedWrapper>
             </S.shippedWrapper>
           </Col>
-          <Col span={12}>
+          <Col lg={12} md={24} sm={24} xs={24}>
             <S.searchWrapper>
               <S.inputSearchWrapper
                 onChange={(e) => {
@@ -147,10 +171,17 @@ const Home = () => {
         </S.ListCategoryWrapper>
       </S.categoryWrapper>
       <S.productWrapper>
-        <Row style={{textAlign: "right", borderBottom: "3px solid #8c8c8c", display: "flex", justifyContent: "space-between"}}>
+        <Row
+          style={{
+            textAlign: "right",
+            borderBottom: "3px solid #8c8c8c",
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
           <S.TitleWrapper>SẢN PHẨM</S.TitleWrapper>
           <Select
-            style={{ width: 130, display: "flex", alignItems: 'center' }}
+            style={{ width: 130, display: "flex", alignItems: "center" }}
             placeholder="Sắp xếp theo"
             bordered={false}
             onChange={(value) => {
