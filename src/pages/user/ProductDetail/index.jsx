@@ -22,7 +22,7 @@ import {
 } from "antd";
 import { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import moment from "moment/moment";
+import moment from "moment";
 import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 
 const ProductDetail = () => {
@@ -33,11 +33,6 @@ const ProductDetail = () => {
   const { productDetail } = useSelector((state) => state.product);
   const { userInfo } = useSelector((state) => state.auth);
   const { reviewList } = useSelector((state) => state.review);
-
-  useEffect(() => {
-    dispatch(getProductDetailRequest({ id: parseInt(id) }));
-    dispatch(getReviewListRequest({ productId: parseInt(id) }));
-  }, []);
 
   const renderReviewList = useMemo(() => {
     return reviewList.data.map((item) => {
@@ -79,11 +74,12 @@ const ProductDetail = () => {
   const isFavorite = useMemo(
     () =>
       productDetail.data.favorites?.some(
+        // nếu thỏa điều kiện trả về true. k thì là false
         (item) => item.userId === userInfo.data.id
       ),
     [productDetail.data.favorites, userInfo.data.id]
   );
-  console.log(productDetail.data.favorites);
+
   useEffect(() => {
     dispatch(getProductDetailRequest({ id: parseInt(id) }));
     dispatch(getReviewListRequest({ productId: parseInt(id) }));
@@ -106,6 +102,7 @@ const ProductDetail = () => {
 
   const handleToggleFavorite = () => {
     if (userInfo.data.id) {
+      // nếu đã có isFavorite
       if (isFavorite) {
         const favoriteData = productDetail.data.favorites?.find(
           (item) => item.userId === userInfo.data.id
@@ -116,6 +113,7 @@ const ProductDetail = () => {
           })
         );
       } else {
+        //nếu chưa có isFavorite
         dispatch(
           favoriteProductRequest({
             productId: productDetail.data.id,
@@ -134,9 +132,18 @@ const ProductDetail = () => {
     <>
       <S.productDetailWrapper>
         <Col span={10}>
-          <img alt="" width="100%" max-height="auto" />
+          <img
+            src={productDetail.data.image}
+            alt=""
+            width="90%"
+            max-height="100px"
+          />
         </Col>
-        <Col flex={1} span={14}>
+        <Col
+          flex={1}
+          span={14}
+          style={{ display: "flex", flexDirection: "column" }}
+        >
           <p>{productDetail.data.name}</p>
           <Rate value={averageRate} allowHalf disabled></Rate>
           <span>{`(${averageRate})`}</span>
@@ -149,10 +156,12 @@ const ProductDetail = () => {
           ></InputNumber>
           <Button onClick={() => handleAddToCart()}>Tem gio</Button>
           <Button
+            size="large"
             type="text"
+            danger={isFavorite}
             icon={
               isFavorite ? (
-                <HeartFilled style={{ fontSize: 24, color: "red" }} />
+                <HeartFilled style={{ fontSize: 24 }} />
               ) : (
                 <HeartOutlined style={{ fontSize: 24, color: "#414141" }} />
               )

@@ -15,14 +15,14 @@ const UserLayout = () => {
       <Header />
       <S.MainWrapper>
         <Outlet />
-        <S.MainButtonWrapper>
+        {/* <S.MainButtonWrapper>
           <PhoneBot/>
           <MapBot/>
           <MailBot/>
           <ChatBotMess />
           <ButtonConstruction />
-        </S.MainButtonWrapper>
-        <ListConstruction/>
+        </S.MainButtonWrapper> */}
+        <ListConstruction />
       </S.MainWrapper>
       <Footer />
     </S.UserLayoutWrapper>

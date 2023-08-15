@@ -19,4 +19,5 @@ export const MainButtonWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  z-index: 99;
 `;

@@ -1,7 +1,6 @@
 import * as S from "./style";
 import Shipped from "../../../image/shipped.jpg";
 import Maintenance from "../../../image/maintenance.jpg";
-import Product from "../../../image/background.jpg";
 import { Col, Row, Checkbox, Select, Button } from "antd";
 import { PRODUCT_LIMIT } from "../../../constants/pagning";
 import { getProductListRequest } from "../../../redux/slicers/product.slice";
@@ -55,7 +54,6 @@ const Home = () => {
           <Link to={generatePath(ROUTES.USER.PRODUCT_DETAIL, { id: item.id })}>
             <S.imageProductWrapper src={item.image} alt="" />
             <S.titleProductWrapper>{item.name}</S.titleProductWrapper>
-
             <S.priceProductWrapper>
               <span>{item.price.toLocaleString()} VNĐ</span>
               <span>{item.reviews.length} danh gia</span>
@@ -136,7 +134,7 @@ const Home = () => {
         </Row>
       </S.titleHomeWrapper>
       <S.categoryWrapper>
-        <Row>
+        <Row style={{ borderBottom: "3px solid #8c8c8c" }}>
           <S.TitleWrapper>DANH MỤC</S.TitleWrapper>
         </Row>
         <S.ListCategoryWrapper>
@@ -149,18 +147,22 @@ const Home = () => {
         </S.ListCategoryWrapper>
       </S.categoryWrapper>
       <S.productWrapper>
-        <Row>
+        <Row style={{textAlign: "right", borderBottom: "3px solid #8c8c8c", display: "flex", justifyContent: "space-between"}}>
           <S.TitleWrapper>SẢN PHẨM</S.TitleWrapper>
+          <Select
+            style={{ width: 130, display: "flex", alignItems: 'center' }}
+            placeholder="Sắp xếp theo"
+            bordered={false}
+            onChange={(value) => {
+              handleFilter("sort", value);
+            }}
+            value={filterParams.sort}
+          >
+            <Select.Option value="price.asc">Tăng dần</Select.Option>
+            <Select.Option value="price.desc">Giảm dần</Select.Option>
+          </Select>
         </Row>
-        <Select
-          onChange={(value) => {
-            handleFilter("sort", value);
-          }}
-          value={filterParams.sort}
-        >
-          <Select.Option value="price.asc">Tăng dần</Select.Option>
-          <Select.Option value="price.desc">Giảm dần</Select.Option>
-        </Select>
+
         <S.ListProductWrapper>{renderProductList}</S.ListProductWrapper>
         {productList.data.length !== productList.meta.total && (
           <Button onClick={() => handleShowMore()}>Hiển thị thêm</Button>

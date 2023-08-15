@@ -4,7 +4,6 @@ import { ROUTES } from "../../../../constants/routers";
 import * as S from "./style";
 import { Outlet } from "react-router-dom";
 
-
 const HeaderLogin = () => {
   return (
     <S.StyleLoginWrapper>
@@ -15,12 +14,13 @@ const HeaderLogin = () => {
           alignItems: "center",
           padding: "5px",
           background: "rgba(128, 128, 128, 0.5)",
-          height: '60px'
+          height: "60px",
+          width: "100%",
         }}
       >
-        <Col span={20} style={{ textAlign: "start" }}>
+        <Col span={12} style={{ textAlign: "start" }}>
           <S.StyleWrapper>
-            <img src={Logo} alt="Logo" height={50} width={70} />
+            <S.ImageWrapper src={Logo} alt="Logo" />
             <S.TitleCompanyWrapper>
               <S.CompanyWrapper>NỘI THẤT KHOA PHẠM</S.CompanyWrapper>
               <S.SloganCompanyWrapper>
@@ -30,15 +30,13 @@ const HeaderLogin = () => {
           </S.StyleWrapper>
           <S.StyleWrapper></S.StyleWrapper>
         </Col>
-        <Col span={4} style={{ textAlign: "end" }}>
-          <S.AboutCompanyWrapper>
-            <S.LinkWrapper to={ROUTES.USER.INTRODUCTION}>
-              Về Chúng Tôi
-            </S.LinkWrapper>
-          </S.AboutCompanyWrapper>
+        <Col span={12} style={{ textAlign: "end" }}>
+          <S.LinkWrapper to={ROUTES.USER.INTRODUCTION}>
+            <S.AboutCompanyWrapper>Về Chúng Tôi</S.AboutCompanyWrapper>
+          </S.LinkWrapper>
         </Col>
       </Row>
-      <Outlet/>
+      <Outlet />
     </S.StyleLoginWrapper>
   );
 };

@@ -22,6 +22,7 @@ export const FormWrapper = styled.div`
   justify-content: center;
   min-height: calc(100vh - 60px);
   height: 100%;
+  padding: 10px;
 `;
 
 export const LoginFormWrapper = styled.div`

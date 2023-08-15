@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { Table } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
-import { v4 as uuidv4 } from "uuid";
 
 import { getOrderListRequest } from "../../../../../redux/slicers/order.slice";
 
@@ -22,7 +21,6 @@ const OrderHistories = () => {
     {
       title: "Mã đơn hàng",
       dataIndex: "id",
-      //key: uuidv4(),
       key: "id",
     },
     {

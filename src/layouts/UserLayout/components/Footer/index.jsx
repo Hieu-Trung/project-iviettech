@@ -1,5 +1,7 @@
 import { Col, Row } from "antd";
-import { MailOutlined } from "@ant-design/icons";
+import { BsFacebook, BsTiktok } from "react-icons/bs";
+import { AiFillInstagram } from "react-icons/ai";
+
 import { ROUTES } from "../../../../constants/routers";
 import * as S from "./style";
 
@@ -8,16 +10,13 @@ const Footer = () => {
     <S.FooterWrapper>
       <Row>
         <Col lg={8} xs={24}>
-          <iframe
-            width="100%"
-            height="auto"
+          <S.StyleIframeWrapper
             src="https://www.youtube.com/embed/I3piKNJDhGE"
             title="25 mẫu thiết kế nội thất phòng khách đẹp hiện đại mới nhất 2018"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
-            style={{ borderRadius: "15px", padding: '20px' }}
-          ></iframe>
+          ></S.StyleIframeWrapper>
         </Col>
         <Col lg={8} xs={24}>
           <S.ConnectWrapper>
@@ -29,15 +28,34 @@ const Footer = () => {
                 Trang chủ
               </S.LinkWrapper>
               <S.LinkWrapper to={ROUTES.USER.HOME}>Cửa hàng</S.LinkWrapper>
-              <S.LinkWrapper to={ROUTES.USER.FORMADVISE}>
-                Tư vấn
-              </S.LinkWrapper>
-
-              <S.LinkWrapper>
-                <MailOutlined /> Khoapham@gmail.com
-                https://www.30secondsofcode.org/react/s/mailto/
-              </S.LinkWrapper>
+              <S.LinkWrapper to={ROUTES.USER.FORMADVISE}>Tư vấn</S.LinkWrapper>
             </S.AboutWrapper>
+            <S.TitleWrapper>
+              <S.SpanStyleWrapper>KẾT NỐI KHOA PHAM</S.SpanStyleWrapper>
+            </S.TitleWrapper>
+            <S.MediaWrapper>
+              <S.LinkWrapper
+                target={"_blank"}
+                to="https://www.facebook.com/profile.php?id=100094360492141"
+              >
+                <BsFacebook fontSize={25} style={{ margin: "10px 20px" }} />
+              </S.LinkWrapper>
+              <S.LinkWrapper
+                target={"_blank"}
+                to="https://www.facebook.com/profile.php?id=100094360492141"
+              >
+                <AiFillInstagram
+                  fontSize={25}
+                  style={{ margin: "10px 20px" }}
+                />
+              </S.LinkWrapper>
+              <S.LinkWrapper
+                target={"_blank"}
+                to="https://www.facebook.com/profile.php?id=100094360492141"
+              >
+                <BsTiktok fontSize={25} style={{ margin: "10px 20px" }} />
+              </S.LinkWrapper>
+            </S.MediaWrapper>
           </S.ConnectWrapper>
         </Col>
         <Col lg={8} xs={24}>

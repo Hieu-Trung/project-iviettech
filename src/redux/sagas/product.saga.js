@@ -20,23 +20,25 @@ function* getProductListSaga(action) {
     const result = yield axios.get("http://localhost:4000/products", {
       params: {
         _expand: "category",
-        _embed: "reviews",
+        _embed: ["reviews", "favorites"],
         _page: page,
         _limit: limit,
-        categoryId,
+        categoryId: categoryId,
         q: keyword,
         ...sortData,
       },
     });
-    yield put(getProductListSuccess({
-      data: result.data,
-      meta: {
-        page: page,
-        limit: limit,
-        total: parseInt(result.headers['x-total-count']),
-      },
-       more: more
-    }));
+    yield put(
+      getProductListSuccess({
+        data: result.data,
+        meta: {
+          page: page,
+          limit: limit,
+          total: parseInt(result.headers["x-total-count"]),
+        },
+        more: more,
+      })
+    );
   } catch (e) {
     yield put(getProductListFailure("Đã có lỗi xảy ra!"));
   }
@@ -48,6 +50,7 @@ function* getProductDetailSaga(action) {
     const result = yield axios.get(`http://localhost:4000/products/${id}`, {
       params: {
         _expand: "category",
+        _embed: "favorites",
       },
     });
     yield put(getProductDetailSuccess({ data: result.data }));
@@ -58,6 +61,5 @@ function* getProductDetailSaga(action) {
 
 export default function* productSaga() {
   yield debounce(300, getProductListRequest.type, getProductListSaga);
-    yield takeEvery(getProductDetailRequest.type, getProductDetailSaga);
-
+  yield takeEvery(getProductDetailRequest.type, getProductDetailSaga);
 }

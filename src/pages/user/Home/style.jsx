@@ -9,7 +9,11 @@ export const homeWrapper = styled.div`
 
 export const titleHomeWrapper = styled.div`
   padding: 20px;
-  box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: #f2f2f2;
 `;
 
 export const shippedWrapper = styled.div`
@@ -64,18 +68,18 @@ export const inputSearchWrapper = styled.input`
 `;
 
 export const categoryWrapper = styled.div`
-  background-color: #fafafa;
-  border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
-  margin: 10px;
+  background-color: #f2f2f2;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  margin: 20px 10px;
+  padding: 20px;
+  border-radius: 10px;
 `;
 export const TitleWrapper = styled.h1`
   font-size: 30px;
   line-height: 40px;
   font-weight: 600;
-  padding: 0 10px;
-  margin: 10px;
-  border-bottom: 3px solid;
+  text-align: start;
+  padding: 10px 0;
 `;
 export const ListCategoryWrapper = styled.div`
   -ms-box-orient: horizontal;
@@ -91,10 +95,11 @@ export const ListCategoryWrapper = styled.div`
   margin: 0 10px;
 `;
 export const productWrapper = styled.div`
-  background-color: #fafafa;
-  border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
-  margin: 10px;
+  background-color: #f2f2f2;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  margin: 20px 10px;
+  padding: 20px;
+  border-radius: 10px;
 `;
 export const ListProductWrapper = styled.div`
   -ms-box-orient: horizontal;
@@ -104,7 +109,7 @@ export const ListProductWrapper = styled.div`
   display: -moz-flex;
   display: -webkit-flex;
   display: flex;
-  justify-content: start;
+  justify-content: space-around;
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
   margin: 0 10px;

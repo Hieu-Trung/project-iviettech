@@ -8,6 +8,10 @@ export const TitleWrapper = styled.h1`
   font-size: 30px;
   line-height: 30px;
   font-weight: 600;
+  padding: 20px 0;
+  @media only screen and (max-width: 37.5em) {
+    font-size: 1.25em;
+  }
 `;
 export const ListConstructionWrapper = styled.div`
   -ms-box-orient: horizontal;

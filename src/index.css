@@ -65,10 +65,6 @@ img {
   color     : #ffffff;
 }
 
-.ant-input::placeholder {
-  color: #ffffff !important;
-}
-
 /* [title="Mật khẩu"] {
   color      : #ffffff !important;
   font-size  : 17px !important;

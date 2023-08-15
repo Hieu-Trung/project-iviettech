@@ -7,12 +7,21 @@ export const FooterWrapper = styled.div`
   z-index: 0;
 `;
 
+export const StyleIframeWrapper = styled.iframe`
+  width: 100%;
+  height: 300px;
+  padding: 20px;
+`;
+
 export const ConnectWrapper = styled.div`
   display: flex;
   flex-direction: column;
   z-index: 0;
 `;
-
+export const MediaWrapper = styled.div`
+  display: flex;
+  padding: 20px;
+`;
 export const TitleWrapper = styled.div`
   font-size: 17px;
   line-height: 25px;

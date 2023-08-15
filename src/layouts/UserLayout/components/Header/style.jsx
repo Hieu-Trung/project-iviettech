@@ -10,18 +10,24 @@ export const HeaderWrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   z-index: 99;
-  height: 55px;
+  height: 60px;
   background-color: #8c8c8c;
   border-bottom: 1px solid #bfbfbf;
-  z-index: 99;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
 `;
 
 export const StyleWrapper = styled.div`
-  font-size: 20px;
   margin: 0 10px;
   display: flex;
 `;
 
+export const ImageWrapper = styled.img`
+  height: 3.125em;
+  width: auto;
+  @media only screen and (max-width: 37.5em) {
+    height: 1.875em;
+  }
+`;
 export const TitleCompanyWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -34,18 +40,34 @@ export const CompanyWrapper = styled.h1`
   font-size: 13px;
   font-weight: 700;
   color: #ffffff;
+  @media only screen and (max-width: 37.5em) {
+    font-size: 0.625em;
+  }
+  @media only screen and (max-width: 28.125em) {
+    font-size: 0.5em;
+  }
 `;
 export const SloganCompanyWrapper = styled.div`
-  font-size: 10px;
+  font-size: 0.625em;
   font-weight: 500;
   color: #ffffff;
+
+  @media only screen and (max-width: 28.125em) {
+    font-size: 0.4375em;
+  }
 `;
 
 export const TitleWrapper = styled.div`
-  font-size: 13px;
+  font-size: 0.8125em;
   line-height: 16px;
   padding: 0 5px;
   text-align: start;
+  @media only screen and (max-width: 37.5em) {
+    font-size: 0.625em;
+  }
+  @media only screen and (max-width: 28.125em) {
+    font-size: 0.5em;
+  }
 `;
 
 export const LoginWrapper = styled.div`
@@ -72,10 +94,10 @@ export const CartWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border-right: 1px solid #fafafa ;
+  border-right: 1px solid #fafafa;
   padding: 0 20px;
   cursor: pointer;
-  &:hover{
+  &:hover {
     color: #1677ff;
   }
 `;

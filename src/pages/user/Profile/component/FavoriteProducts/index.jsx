@@ -27,9 +27,9 @@ function FavoriteProducts() {
       return (
         <Col key={item.id} xs={12} xl={8}>
           <Link
-          // to={generatePath(ROUTES.USER.PRODUCT_DETAIL, {
-          //   id: item.product.id,
-          // })}
+            to={generatePath(ROUTES.USER.PRODUCT_DETAIL, {
+              id: item.product.id,
+            })}
           >
             <Card title={item.product.name} size="small">
               <p>{item.product.price.toLocaleString()} VND</p>
