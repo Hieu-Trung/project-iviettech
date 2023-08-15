@@ -11,11 +11,9 @@ export const homeWrapper = styled.div`
 
 export const titleHomeWrapper = styled.div`
   padding: 20px;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-  margin: 10px;
+  margin: 20px 10px;
   border-radius: 10px;
-  background-color: #f2f2f2;
+  background-color: #ffffff;
   & Col {
     margin: 20px 0;
   }
@@ -97,8 +95,7 @@ export const inputSearchWrapper = styled.input`
 `;
 
 export const categoryWrapper = styled.div`
-  background-color: #f2f2f2;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  background-color: #ffffff;
   margin: 20px 10px;
   padding: 20px;
   border-radius: 10px;
@@ -139,25 +136,36 @@ export const ListProductWrapper = styled.div`
   display: -webkit-flex;
   display: flex;
   justify-content: space-around;
-  -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin: 0 10px;
-`;
-
-export const imageProductWrapper = styled.img`
-  width: 200px;
-  height: 200px;
-  margin: 10px auto;
-  display: block;
 `;
 
 export const CardCategoryWrapper = styled.div`
-  width: 250px;
+  width: 230px;
   background-color: #f2f2f2;
   height: 350px;
   margin: 10px 0;
   border-radius: 10px;
   overflow: hidden;
+  padding: 0 10px;
+  @media only screen and (max-width: 33.125em) {
+    width: 170px;
+    height: 290px;
+  }
+  @media only screen and (max-width: 25em) {
+    width: 160px;
+    height: 280px;
+  }
+`;
+export const imageProductWrapper = styled.img`
+  margin: 10px auto;
+  display: block;
+  height: 210px;
+  @media only screen and (max-width: 33.125em) {
+    height: 140px;
+  }
+  @media only screen and (max-width: 25em) {
+    height: 140px;
+  }
 `;
 
 export const LinkWrapper = styled(Link)`
@@ -171,13 +179,11 @@ export const titleProductWrapper = styled.div`
   text-overflow: ellipsis;
   font-size: 20px;
   font-weight: 500;
-  padding: 0 5px;
 `;
 
 export const priceProductWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 0 10px;
 `;
 
 export const PriceWrapper = styled.div`
@@ -194,9 +200,16 @@ export const PriceWrapper = styled.div`
 export const PriceOldWrapper = styled.span`
   text-decoration: line-through;
   padding: 5px 0;
+  color: #bfbfbf;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 export const PriceSaleWrapper = styled.span`
   color: red;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const PricePercentrapper = styled.div`
@@ -212,7 +225,7 @@ export const PricePercentrapper = styled.div`
 `;
 
 export const DetailProductWrapper = styled.div`
-  padding: 10px;
+  padding: 10px 0;
   display: flex;
   justify-content: space-between;
   align-self: center;
@@ -220,7 +233,7 @@ export const DetailProductWrapper = styled.div`
 export const CommentProductWrapper = styled.div`
   display: flex;
   align-items: center;
-
+  color: #8c8c8c;
   & span {
     padding: 0 10px;
   }
@@ -228,6 +241,7 @@ export const CommentProductWrapper = styled.div`
 export const HeartProductWrapper = styled.div`
   display: flex;
   align-items: center;
+  color: #8c8c8c;
   & span {
     padding: 0 10px;
   }

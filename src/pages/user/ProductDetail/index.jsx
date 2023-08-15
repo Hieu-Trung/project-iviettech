@@ -11,15 +11,7 @@ import {
 } from "../../../redux/slicers/favorite.slice";
 
 import { useParams } from "react-router-dom";
-import {
-  Col,
-  Input,
-  InputNumber,
-  Button,
-  Form,
-  Rate,
-  notification,
-} from "antd";
+import { Col, Input, Button, Form, Rate, notification, message } from "antd";
 import { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
@@ -33,16 +25,29 @@ const ProductDetail = () => {
   const { productDetail } = useSelector((state) => state.product);
   const { userInfo } = useSelector((state) => state.auth);
   const { reviewList } = useSelector((state) => state.review);
+  const [messageApi, contextHolder] = message.useMessage();
 
+  const AddToCardSuccess = () => {
+    messageApi.open({
+      type: "success",
+      content: "Thêm vào giỏ hàng thành công",
+    });
+  };
   const renderReviewList = useMemo(() => {
     return reviewList.data.map((item) => {
       return (
-        <div key={item.id}>
-          <h2>{item.user.fullName}</h2>
-          <span>{moment(item.createdAt).fromNow()}</span>
-          <Rate value={item.rate} disabled></Rate>
-          <p>{item.comment}</p>
-        </div>
+        <S.ListReviewWrapper key={item.id}>
+          <S.StyleDiv></S.StyleDiv>
+          <S.TitleReviewProduct>
+            <h3>{item.user.fullName}</h3>
+            <span>{moment(item.createdAt).fromNow()}</span>
+          </S.TitleReviewProduct>
+          <span>
+            Số sao: <Rate value={item.rate} disabled />
+          </span>
+
+          <p>Nội dung: {item.comment}</p>
+        </S.ListReviewWrapper>
       );
     });
   }, [reviewList.data]);
@@ -89,7 +94,7 @@ const ProductDetail = () => {
     dispatch(
       addToCartRequest({
         data: {
-          //ảnh
+          image: productDetail.data.image,
           productId: productDetail.data.id,
           name: productDetail.data.name,
           price: productDetail.data.price,
@@ -97,7 +102,7 @@ const ProductDetail = () => {
         },
       })
     );
-    notification.success({ message: "Bỏ vào giỏ thành công" });
+    AddToCardSuccess();
   };
 
   const handleToggleFavorite = () => {
@@ -128,91 +133,135 @@ const ProductDetail = () => {
     }
   };
 
-  return (
-    <>
-      <S.productDetailWrapper>
-        <Col span={10}>
-          <img
-            src={productDetail.data.image}
-            alt=""
-            width="90%"
-            max-height="100px"
-          />
-        </Col>
-        <Col
-          flex={1}
-          span={14}
-          style={{ display: "flex", flexDirection: "column" }}
+  const renderReviewForm = useMemo(() => {
+    if (userInfo.data.id) {
+      const isReviewed = reviewList.data.some(
+        (item) => item.userId === userInfo.data.id
+      );
+      if (isReviewed) {
+        return <h2>Bạn đã đánh giá sản phẩm này</h2>;
+      }
+      return (
+        <Form
+          form={reviewForm}
+          onFinish={(values) => handleReviewProduct(values)}
+          layout="vertical"
+          name="commentForm"
+          initialValues={{
+            rate: 0,
+            comment: "",
+          }}
         >
-          <p>{productDetail.data.name}</p>
-          <Rate value={averageRate} allowHalf disabled></Rate>
-          <span>{`(${averageRate})`}</span>
-          <p>{productDetail.data.price?.toLocaleString()} VNĐ</p>
-          <p>{productDetail.data.category?.name}</p>
-          <InputNumber
+          <Form.Item
+            label="Đánh giá sao"
+            name="rate"
+            rules={[
+              {
+                required: true,
+                message: "Vui lòng chọn đánh giá sao",
+              },
+            ]}
+          >
+            <Rate />
+          </Form.Item>
+          <Form.Item
+            label="Nhận xét "
+            name="comment"
+            rules={[
+              {
+                required: true,
+                message: "Vui lòng nhập nội dung đánh giá",
+              },
+            ]}
+          >
+            <Input.TextArea />
+          </Form.Item>
+          <S.StyleButton>
+            <S.BottomLoginWrapper>Đánh giá</S.BottomLoginWrapper>
+          </S.StyleButton>
+        </Form>
+      );
+    }
+    return <h2>Bạn cần đăng nhập để đánh giá sản phẩm</h2>;
+  }, [userInfo.data, reviewList.data]);
+
+  return (
+    <S.ProductDetail>
+      {contextHolder}
+      <S.ProductDetailWrapper>
+        <Col span={10}>
+          <S.ImageProductWrapper src={productDetail.data.image} alt="" />
+        </Col>
+        <S.StyleColWrapper span={14}>
+          <h3>Tên sản phẩm: {productDetail.data.name}</h3>
+          <S.DetailProductWrapper>
+            <Col lg={12} md={12} sm={24} xs={24}>
+              <S.StyleRateWrapper
+                value={averageRate}
+                allowHalf
+                disabled
+              ></S.StyleRateWrapper>
+              <S.TotalRate>{`(${averageRate})`}</S.TotalRate>
+            </Col>
+            <Col lg={12} md={12} sm={24} xs={24}>
+              <S.DetailProductWrapper>
+                <Button
+                  size="large"
+                  type="text"
+                  danger={isFavorite}
+                  icon={
+                    isFavorite ? (
+                      <HeartFilled style={{ fontSize: 20 }} />
+                    ) : (
+                      <HeartOutlined
+                        style={{ fontSize: 20, color: "#414141" }}
+                      />
+                    )
+                  }
+                  onClick={() => handleToggleFavorite()}
+                ></Button>
+                {productDetail.data?.favorites?.length || 0} Lượt thích
+              </S.DetailProductWrapper>
+            </Col>
+          </S.DetailProductWrapper>
+
+          <S.priceProductWrapper>
+            <S.PriceWrapper span={12}>
+              <S.PriceOldWrapper>
+                Giá: {productDetail.data.price?.toLocaleString()} VNĐ
+              </S.PriceOldWrapper>
+              <S.PriceSaleWrapper>
+                Sale: {productDetail.data.salePrice?.toLocaleString()} VNĐ
+              </S.PriceSaleWrapper>
+            </S.PriceWrapper>
+            <S.PriceWrapper span={12}>
+              <S.PricePercentrapper>
+                {(
+                  ((productDetail.data.price - productDetail.data.salePrice) /
+                    productDetail.data.price) *
+                  100
+                ).toFixed()}
+              </S.PricePercentrapper>
+            </S.PriceWrapper>
+          </S.priceProductWrapper>
+
+          <S.StyleInputNumberWrapper
             value={quantity}
             onChange={(value) => setQuantity(value)}
             min={1}
-          ></InputNumber>
-          <Button onClick={() => handleAddToCart()}>Tem gio</Button>
-          <Button
-            size="large"
-            type="text"
-            danger={isFavorite}
-            icon={
-              isFavorite ? (
-                <HeartFilled style={{ fontSize: 24 }} />
-              ) : (
-                <HeartOutlined style={{ fontSize: 24, color: "#414141" }} />
-              )
-            }
-            onClick={() => handleToggleFavorite()}
-          ></Button>
-          {productDetail.data?.favorites?.length || 0} Lượt thích
-        </Col>
-      </S.productDetailWrapper>
-      {userInfo.data.id && (
-        <div>
-          <Form
-            form={reviewForm}
-            onFinish={(values) => handleReviewProduct(values)}
-            layout="vertical"
-            name="commentForm"
-            initialValues={{
-              rate: 0,
-              comment: "",
-            }}
-          >
-            <Form.Item
-              label="Đánh giá sao"
-              name="rate"
-              rules={[
-                {
-                  required: true,
-                  message: "Vui lòng chọn đánh giá sao",
-                },
-              ]}
-            >
-              <Rate />
-            </Form.Item>
-            <Form.Item
-              label="Nhận xét "
-              name="comment"
-              rules={[
-                {
-                  required: true,
-                  message: "Vui lòng nhập nội dung đánh giá",
-                },
-              ]}
-            >
-              <Input.TextArea />
-            </Form.Item>
-            <S.BottomLoginWrapper>Danh gia</S.BottomLoginWrapper>
-            {renderReviewList}
-          </Form>
-        </div>
-      )}
-    </>
+          />
+
+          <S.BottomLoginWrapper onClick={() => handleAddToCart()}>
+            Thêm vào giỏ
+          </S.BottomLoginWrapper>
+        </S.StyleColWrapper>
+      </S.ProductDetailWrapper>
+      <S.Review>
+        {renderReviewForm}
+
+        {renderReviewList}
+      </S.Review>
+    </S.ProductDetail>
   );
 };
 

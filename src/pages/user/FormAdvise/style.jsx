@@ -21,19 +21,23 @@ export const BackgroundFormWrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   color: #ffffff;
+  @media only screen and (max-width: 37.5em) {
+    height: 300px;
+  }
+  @media only screen and (max-width: 28.125em) {
+    height: 250px;
+  }
 `;
 
-export const TitleWrapper = styled.div`
-  font-size: 50px;
-  line-height: 30px;
-  font-weight: 900;
+export const TitleWrapper = styled.h1`
+  text-align: center;
+  color: #ffffff;
 `;
 
-export const TitleSloganWrapper = styled.div`
-  font-size: 17px;
-  line-height: 30px;
-  font-weight: 500;
+export const TitleSloganWrapper = styled.span`
   padding: 10px 0;
+  text-align: center;
+  color: #ffffff;
 `;
 
 export const FormWrapper = styled.div`
@@ -69,7 +73,7 @@ export const ButtonWrapper = styled.div`
   margin: 20px 0;
 `;
 export const BottomFormWrapper = styled.button`
-  animation: changeBg 5s infinite alternate linear;
+  background-color: black;
   color: white;
   padding: 15px 20px;
   border-radius: 10px;

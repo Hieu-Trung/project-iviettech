@@ -144,6 +144,15 @@
       "createdAt": 1692006321368,
       "updatedAt": 1692006321368,
       "id": 15
+    },
+    {
+      "rate": 4,
+      "comment": "dasadassasasadassadasád",
+      "userId": 1,
+      "productId": 4,
+      "createdAt": 1692125487909,
+      "updatedAt": 1692125487909,
+      "id": 16
     }
   ],
   "orders": [
@@ -197,8 +206,8 @@
     {
       "productId": 1,
       "userId": 1,
-      "createdAt": 1692006135643,
-      "updatedAt": 1692006135644,
+      "createdAt": 1692120245311,
+      "updatedAt": 1692120245311,
       "id": 4
     }
   ],

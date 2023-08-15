@@ -4,7 +4,7 @@ import * as S from "./style";
 
 const MailBot = () => {
   return (
-    <S.LinkWrapper>
+    <S.LinkWrapper to="mailto:noithatkhoapham6868@gmail.com">
       <S.BotWrapper>
         <AiOutlineMail style={{ fontSize: "25px" }} />
       </S.BotWrapper>

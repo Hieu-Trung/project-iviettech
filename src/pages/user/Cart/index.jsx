@@ -1,9 +1,9 @@
 import * as S from "./style";
 
 import { useSelector, useDispatch } from "react-redux";
-import { useMemo } from "react";
 import { Table, Card, Row, Col, Button, InputNumber } from "antd";
 import { useNavigate } from "react-router-dom";
+import { AiFillDelete } from "react-icons/ai";
 
 import { ROUTES } from "../../../constants/routers";
 import {
@@ -41,6 +41,14 @@ const Cart = () => {
       key: "name",
     },
     {
+      title: "hình ảnh",
+      dataIndex: "image",
+      key: "image",
+      render: (_, item) => {
+        return <img src={item.image} alt="" width={100} height={100} />;
+      },
+    },
+    {
       title: "Đơn giá",
       dataIndex: "price",
       key: "price",
@@ -72,39 +80,39 @@ const Cart = () => {
       dataIndex: "action",
       key: "action",
       render: (_, item) => (
-        <Button danger onClick={() => handleDeleteCartItem(item.productId)}>
-          Xóa
-        </Button>
+        <S.BottomLoginWrapper
+          onClick={() => handleDeleteCartItem(item.productId)}
+        >
+          <AiFillDelete />
+        </S.BottomLoginWrapper>
       ),
     },
   ];
   return (
     <S.CartListWrapper>
       <h2 style={{ marginBottom: 24 }}>Giỏ hàng</h2>
-      <Card size="small">
-        <Table
-          columns={tableColumn}
-          dataSource={cartList}
-          rowKey="id"
-          pagination={false}
-        />
-      </Card>
-      <Row justify="end" style={{ margin: "24px 0" }}>
-        <Col span={8}>
-          <Card size="small" title="Tổng tiền">
-            {totalPrice.toLocaleString()} VND
-          </Card>
-        </Col>
-      </Row>
-      <Row justify="end">
-        <Button
-          type="primary"
-          disabled={cartList.length === 0}
-          onClick={() => navigate(ROUTES.USER.CHECKOUT)}
-        >
-          Tiếp theo
-        </Button>
-      </Row>
+
+      <Table
+        columns={tableColumn}
+        dataSource={cartList}
+        rowKey="id"
+        pagination={false}
+        bordered
+      />
+      <S.TotalPriceWrapper>
+        <S.TotalPrice>
+          <span>Tổng tiền: &nbsp;</span>
+          {totalPrice.toLocaleString()} VNĐ
+        </S.TotalPrice>
+        <S.ButtonPayWrapper>
+          <S.BottomPay
+            disabled={cartList.length === 0}
+            onClick={() => navigate(ROUTES.USER.CHECKOUT)}
+          >
+            Thanh Toán
+          </S.BottomPay>
+        </S.ButtonPayWrapper>
+      </S.TotalPriceWrapper>
     </S.CartListWrapper>
   );
 };
