@@ -1,3 +1,5 @@
+import * as S from "./style";
+
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Form, Input } from "antd";
@@ -44,36 +46,36 @@ function ChangePassword() {
       autoComplete="off"
     >
       <Form.Item
-        label="Password"
+        label="Mật khẩu cũ"
         name="password"
         rules={[
           {
             required: true,
-            message: "Please input your password!",
+            message: "Vui lòng nhập mật khẩu của bạn!",
           },
         ]}
       >
         <Input.Password />
       </Form.Item>
       <Form.Item
-        label="New password"
+        label="Mật khẩu mới"
         name="newPassword"
         rules={[
           {
             required: true,
-            message: "Please input your new password!",
+            message: "Vui lòng nhập mật khẩu mới của bạn!",
           },
         ]}
       >
         <Input.Password />
       </Form.Item>
       <Form.Item
-        label="Confirm new password"
+        label="Xác nhận mật khẩu mới "
         name="confirmNewPassword"
         rules={[
           {
             required: true,
-            message: "Please input your confirm new password!",
+            message: "Vui lòng nhập xác nhận mật khẩu mới của bạn!",
           },
           ({ getFieldValue }) => ({
             validator(_, value) {
@@ -81,7 +83,7 @@ function ChangePassword() {
                 return Promise.resolve();
               }
               return Promise.reject(
-                "The two passwords that you entered do not match!"
+                "Hai mật khẩu bạn đã nhập không khớp!Hai mật khẩu bạn đã nhập không khớp!"
               );
             },
           }),
@@ -89,14 +91,9 @@ function ChangePassword() {
       >
         <Input.Password />
       </Form.Item>
-      <Button
-        type="primary"
-        htmlType="submit"
-        block
-        loading={changePasswordData.load}
-      >
+      <S.BottomWrapper loading={changePasswordData.load}>
         Submit
-      </Button>
+      </S.BottomWrapper>
     </Form>
   );
 }

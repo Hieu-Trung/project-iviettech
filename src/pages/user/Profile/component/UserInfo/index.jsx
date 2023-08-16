@@ -1,6 +1,8 @@
+import * as S from "./style";
+
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Form, Input, DatePicker } from "antd";
+import { Form, Input, DatePicker, notification } from "antd";
 import dayjs from "dayjs";
 
 import { updateUserInfoRequest } from "../../../../../redux/slicers/auth.slice";
@@ -33,6 +35,9 @@ function UserInfo() {
         },
       })
     );
+    notification.success({
+      message: "Cập nhật thông tin thành công",
+    });
   };
 
   return (
@@ -88,14 +93,9 @@ function UserInfo() {
       >
         <DatePicker />
       </Form.Item>
-      <Button
-        type="primary"
-        htmlType="submit"
-        block
-        loading={updateUserInfoData.load}
-      >
+      <S.BottomWrapper loading={updateUserInfoData.load}>
         Cập nhật
-      </Button>
+      </S.BottomWrapper>
     </Form>
   );
 }
