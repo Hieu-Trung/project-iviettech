@@ -12,40 +12,7 @@
       "birthday": 932437555646
     }
   ],
-  "advise": [
-    {
-      "fullName": "Trần Hiếu Trung",
-      "numberPhone": "0333709228",
-      "address": "ewqewq",
-      "createdAt": 1690598000523,
-      "updatedAt": 1690598000523,
-      "id": 1
-    },
-    {
-      "fullName": "Trần Hiếu Trungeqwfre",
-      "numberPhone": "0333709228",
-      "address": "ewds",
-      "createdAt": 1690598017489,
-      "updatedAt": 1690598017489,
-      "id": 2
-    },
-    {
-      "fullName": "huong",
-      "numberPhone": "0333709228",
-      "address": "123123",
-      "createdAt": 1690912821391,
-      "updatedAt": 1690912821391,
-      "id": 3
-    },
-    {
-      "fullName": "Trần Hiếu Trung",
-      "numberPhone": "0333709228",
-      "address": "ewqewq",
-      "createdAt": 1691247433170,
-      "updatedAt": 1691247433171,
-      "id": 4
-    }
-  ],
+  "advise": [],
   "products": [
     {
       "image": "https://muabanghecu.com/wp-content/uploads/2019/08/kich-thuoc-ban-trang-diem-chuan.jpg",
@@ -94,6 +61,54 @@
       "price": 2500000,
       "oldPrice": 5000000,
       "id": 6
+    },
+    {
+      "image": "https://nhaxinh.com/wp-content/uploads/2021/10/nha-xinh-tu-bep-pio-1-768x511.jpg",
+      "name": "Tủ Bếp Pio",
+      "categoryId": 4,
+      "price": 11500000,
+      "oldPrice": 12000000,
+      "id": 7
+    },
+    {
+      "image": "https://nhaxinh.com/wp-content/uploads/2021/10/nha-xinh-tu-bep-lovely-768x511.jpg",
+      "name": "Tủ Bếp Lovely",
+      "categoryId": 4,
+      "price": 12000000,
+      "oldPrice": 13000000,
+      "id": 8
+    },
+    {
+      "image": "https://nhaxinh.com/wp-content/uploads/2023/07/Ghe-an-Coastal-vang-768x511.jpg",
+      "name": "Ghế ăn Coastal vàng",
+      "categoryId": 5,
+      "price": 500000,
+      "oldPrice": 700000,
+      "id": 9
+    },
+    {
+      "image": "https://nhaxinh.com/wp-content/uploads/2023/07/Ghe-an-Coastal-xanh-2-768x511.jpg",
+      "name": "Ghế ăn Coastal xanh",
+      "categoryId": 5,
+      "price": 500000,
+      "oldPrice": 700000,
+      "id": 10
+    },
+    {
+      "image": "https://nhaxinh.com/wp-content/uploads/2023/07/Ke-Coastal-768x511.jpg",
+      "name": "Kệ Coastal",
+      "categoryId": 6,
+      "price": 200000,
+      "oldPrice": 250000,
+      "id": 11
+    },
+    {
+      "image": "https://nhaxinh.com/wp-content/uploads/2022/12/TU-TRUNG-BAY-2-HOC-KEO-RN-768x495.jpg",
+      "name": "Tủ trưng bày 2 hộc kéo RN",
+      "categoryId": 6,
+      "price": 200000,
+      "oldPrice": 250000,
+      "id": 12
     }
   ],
   "categories": [
@@ -103,230 +118,29 @@
     },
     {
       "id": 2,
-      "name": "tủ"
+      "name": "Tủ"
     },
     {
       "id": 3,
-      "name": "tap"
+      "name": "Tap"
+    },
+    {
+      "id": 4,
+      "name": "Bếp"
+    },
+    {
+      "id": 5,
+      "name": "Ghế"
+    },
+    {
+      "id": 6,
+      "name": "Kệ"
     }
   ],
-  "reviews": [
-    {
-      "rate": 4,
-      "comment": "trung",
-      "userId": 1,
-      "productId": 1,
-      "createdAt": 1691675279436,
-      "updatedAt": 1691675279436,
-      "id": 12
-    },
-    {
-      "rate": 5,
-      "comment": "trgfdvdf",
-      "userId": 1,
-      "productId": 1,
-      "createdAt": 1691931573530,
-      "updatedAt": 1691931573531,
-      "id": 13
-    },
-    {
-      "rate": 4,
-      "comment": "xZ",
-      "userId": 1,
-      "productId": 1,
-      "createdAt": 1691931917911,
-      "updatedAt": 1691931917911,
-      "id": 14
-    },
-    {
-      "rate": 4,
-      "comment": "sản phẩm đẹp\n",
-      "userId": 1,
-      "productId": 1,
-      "createdAt": 1692006321368,
-      "updatedAt": 1692006321368,
-      "id": 15
-    },
-    {
-      "rate": 4,
-      "comment": "dasadassasasadassadasád",
-      "userId": 1,
-      "productId": 4,
-      "createdAt": 1692125487909,
-      "updatedAt": 1692125487909,
-      "id": 16
-    },
-    {
-      "rate": 4,
-      "comment": "sản phẩm đẹp",
-      "userId": 1,
-      "productId": 2,
-      "createdAt": 1692147479854,
-      "updatedAt": 1692147479854,
-      "id": 17
-    }
-  ],
-  "orders": [
-    {
-      "fullName": "Trần Hiếu Trung",
-      "email": "hieutrungpt2007@gmail.com",
-      "phoneNumber": "0333709228",
-      "cityCode": "77",
-      "districtCode": "750",
-      "wardCode": "26575",
-      "address": "dsaasqsa",
-      "paymentMethod": "cod",
-      "cityName": "Tỉnh Bà Rịa-Vũng Tàu",
-      "districtName": "Huyện Châu Đức",
-      "wardName": "Thị trấn Ngãi Giao",
-      "userId": 1,
-      "totalPrice": 2500000,
-      "status": "pending",
-      "createdAt": 1691679403104,
-      "updatedAt": 1691679403104,
-      "id": 1
-    },
-    {
-      "fullName": "Trần Hiếu Trung",
-      "email": "hieutrungpt2007@gmail.com",
-      "phoneNumber": "0333709228",
-      "cityCode": "79",
-      "districtCode": "771",
-      "wardCode": "27190",
-      "address": "QWERTYUIOP",
-      "paymentMethod": "Thanh toán khi nhận hàng",
-      "cityName": "Thành phố Hồ Chí Minh",
-      "districtName": "Quận 10",
-      "wardName": "Phường 02",
-      "userId": 1,
-      "totalPrice": 24000000,
-      "status": "pending",
-      "createdAt": 1692151006258,
-      "updatedAt": 1692151006258,
-      "id": 2
-    },
-    {
-      "fullName": "Trung",
-      "email": "hieutrungpt2007@gmail.com",
-      "phoneNumber": "0333709228",
-      "cityCode": "01",
-      "districtCode": "001",
-      "wardCode": "00031",
-      "address": "123456",
-      "paymentMethod": "Thanh toán khi nhận hàng",
-      "cityName": "Thành phố Hà Nội",
-      "districtName": "Quận Ba Đình",
-      "wardName": "Phường Giảng Võ",
-      "userId": 1,
-      "totalPrice": 2500000,
-      "status": "pending",
-      "createdAt": 1692153758993,
-      "updatedAt": 1692153758994,
-      "id": 3
-    }
-  ],
-  "orderDetails": [
-    {
-      "orderId": 1,
-      "productId": 1,
-      "name": "Bàn trang điểm",
-      "price": 2500000,
-      "quantity": 1,
-      "createdAt": 1691679403178,
-      "updatedAt": 1691679403178,
-      "id": 1
-    },
-    {
-      "orderId": 2,
-      "productId": 6,
-      "name": "tap trang điểm",
-      "price": 2500000,
-      "quantity": 1,
-      "createdAt": 1692151006364,
-      "updatedAt": 1692151006364,
-      "id": 2
-    },
-    {
-      "orderId": 2,
-      "productId": 4,
-      "name": "tủ thờ",
-      "price": 2500000,
-      "quantity": 1,
-      "createdAt": 1692151006411,
-      "updatedAt": 1692151006411,
-      "id": 3
-    },
-    {
-      "orderId": 2,
-      "productId": 2,
-      "name": "Bàn trang điểm cửa lùa",
-      "price": 3500000,
-      "quantity": 4,
-      "createdAt": 1692151006453,
-      "updatedAt": 1692151006453,
-      "id": 4
-    },
-    {
-      "orderId": 2,
-      "productId": 3,
-      "name": "tủ áo",
-      "price": 2500000,
-      "quantity": 1,
-      "createdAt": 1692151006512,
-      "updatedAt": 1692151006512,
-      "id": 5
-    },
-    {
-      "orderId": 2,
-      "productId": 5,
-      "name": "tap giường",
-      "price": 2500000,
-      "quantity": 1,
-      "createdAt": 1692151006559,
-      "updatedAt": 1692151006560,
-      "id": 6
-    },
-    {
-      "orderId": 3,
-      "productId": 4,
-      "name": "tủ thờ",
-      "price": 2500000,
-      "quantity": 1,
-      "createdAt": 1692153759068,
-      "updatedAt": 1692153759068,
-      "id": 7
-    }
-  ],
-  "favorites": [
-    {
-      "productId": 2,
-      "userId": 1,
-      "createdAt": 1692157144627,
-      "updatedAt": 1692157144628,
-      "id": 1
-    },
-    {
-      "productId": 1,
-      "userId": 1,
-      "createdAt": 1692157802445,
-      "updatedAt": 1692157802445,
-      "id": 2
-    },
-    {
-      "productId": 4,
-      "userId": 1,
-      "createdAt": 1692157806685,
-      "updatedAt": 1692157806685,
-      "id": 3
-    },
-    {
-      "productId": 5,
-      "userId": 1,
-      "createdAt": 1692157810253,
-      "updatedAt": 1692157810253,
-      "id": 4
-    }
-  ],
+  "reviews": [],
+  "orders": [],
+  "orderDetails": [],
+  "favorites": [],
   "cities": [
     {
       "id": 10993,

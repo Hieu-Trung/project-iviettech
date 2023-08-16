@@ -9,6 +9,7 @@ import MapBot from "./components/MapBot";
 import PhoneBot from "./components/PhoneBot";
 
 import * as S from "./style";
+
 const UserLayout = () => {
   return (
     <S.UserLayoutWrapper>

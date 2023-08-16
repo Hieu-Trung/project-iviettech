@@ -9,7 +9,7 @@ export const MainWrapper = styled.div`
   flex: 1;
   margin-top: 55px;
   background-color: #ececec;
-  z-index:  50;
+  z-index: 50;
 `;
 export const MainButtonWrapper = styled.div`
   position: fixed;

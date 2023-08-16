@@ -19,7 +19,7 @@ function* getOrderListSaga(action) {
       params: {
         userId: userId,
         // 1 nhieu
-        _embed: "orderDetails",
+        _embed: ["orderDetails"],
       },
     });
     yield put(getOrderListSuccess({ data: result.data }));
@@ -35,6 +35,7 @@ function* orderProductSaga(action) {
     for (let i = 0; i < products.length; i++) {
       yield axios.post("http://localhost:4000/orderDetails", {
         orderId: result.data.id,
+        image: products[i].image,
         productId: products[i].productId,
         name: products[i].name,
         price: products[i].price,

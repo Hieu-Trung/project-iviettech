@@ -1,3 +1,5 @@
+import * as S from "./style";
+
 import { useEffect } from "react";
 import { Table, Col, Row } from "antd";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,7 +9,6 @@ import { getOrderListRequest } from "../../../../../redux/slicers/order.slice";
 
 const OrderHistories = () => {
   const dispatch = useDispatch();
-
   const { userInfo } = useSelector((state) => state.auth);
   const { orderList } = useSelector((state) => state.order);
 
@@ -50,7 +51,6 @@ const OrderHistories = () => {
         `${item.address}, ${item.wardName}, ${item.districtName}, ${item.cityName}`,
     },
   ];
-  console.log(orderList.data);
 
   return (
     <Row>
@@ -62,22 +62,33 @@ const OrderHistories = () => {
           pagination={false}
           expandable={{
             expandedRowRender: (record) => (
-              <ul>
+              <>
                 {record.orderDetails.map((item) => (
-                  <li key={item.id}>
-                    {item.name}
-                    <img
-                      src={` - ${item.image}`}
-                      alt=""
-                      width={70}
-                      height={70}
-                    />
-                    {` - ${item.price}`}
-                    {` - ${item.quantity}`}
-                    {` - ${item.price * item.quantity}`}
-                  </li>
+                  <Row key={item.id}>
+                    <S.StyleColWrapper span={5}>
+                      <h3>Sản phẩm</h3>
+                      <span>{item.name}</span>
+                    </S.StyleColWrapper>
+                    <S.StyleColWrapper span={5}>
+                      <img src={item.image} alt="" width={70} height={70} />
+                    </S.StyleColWrapper>
+                    <S.StyleColWrapper span={5}>
+                      <h3>Giá tiền</h3>
+                      <span>{item.price.toLocaleString()} VNĐ</span>
+                    </S.StyleColWrapper>
+                    <S.StyleColWrapper span={5}>
+                      <h3>Số Lượng </h3>
+                      <span>{item.quantity}</span>
+                    </S.StyleColWrapper>
+                    <S.StyleColWrapper h3={5}>
+                      <h3>Tổng</h3>
+                      <span>
+                        {(item.price * item.quantity).toLocaleString()} VNĐ
+                      </span>
+                    </S.StyleColWrapper>
+                  </Row>
                 ))}
-              </ul>
+              </>
             ),
           }}
         />

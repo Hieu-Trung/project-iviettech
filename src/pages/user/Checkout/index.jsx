@@ -24,7 +24,6 @@ const Checkout = () => {
   const { cityList, districtList, wardList } = useSelector(
     (state) => state.location
   );
-
   const { userInfo } = useSelector((state) => state.auth);
 
   const initialValues = {
