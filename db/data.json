@@ -137,10 +137,28 @@
       "name": "Kệ"
     }
   ],
-  "reviews": [],
+  "reviews": [
+    {
+      "rate": 4,
+      "comment": "sản phẩm tốt",
+      "userId": 1,
+      "productId": 8,
+      "createdAt": 1692166977431,
+      "updatedAt": 1692166977431,
+      "id": 1
+    }
+  ],
   "orders": [],
   "orderDetails": [],
-  "favorites": [],
+  "favorites": [
+    {
+      "productId": 8,
+      "userId": 1,
+      "createdAt": 1692166966203,
+      "updatedAt": 1692166966204,
+      "id": 1
+    }
+  ],
   "cities": [
     {
       "id": 10993,
