@@ -166,8 +166,40 @@
       "id": 2
     }
   ],
-  "orders": [],
-  "orderDetails": [],
+  "orders": [
+    {
+      "fullName": "Hiếu",
+      "email": "jennypham5464@gmail.com",
+      "phoneNumber": "0333709228",
+      "cityCode": "79",
+      "districtCode": "771",
+      "wardCode": "27190",
+      "address": "123123123123",
+      "paymentMethod": "Thanh toán khi nhận hàng",
+      "cityName": "Thành phố Hồ Chí Minh",
+      "districtName": "Quận 10",
+      "wardName": "Phường 02",
+      "userId": 2,
+      "totalPrice": 2500000,
+      "status": "pending",
+      "createdAt": 1692180118834,
+      "updatedAt": 1692180118834,
+      "id": 1
+    }
+  ],
+  "orderDetails": [
+    {
+      "orderId": 1,
+      "image": "https://phongthuynhattam.com/wp-content/uploads/2022/09/mau-ban-tho-dung-hien-dai-63.jpg",
+      "productId": 4,
+      "name": "tủ thờ",
+      "price": 2500000,
+      "quantity": 1,
+      "createdAt": 1692180118919,
+      "updatedAt": 1692180118919,
+      "id": 1
+    }
+  ],
   "favorites": [
     {
       "productId": 8,
@@ -182,6 +214,13 @@
       "createdAt": 1692173059310,
       "updatedAt": 1692173059311,
       "id": 2
+    },
+    {
+      "productId": 9,
+      "userId": 2,
+      "createdAt": 1692181059791,
+      "updatedAt": 1692181059791,
+      "id": 3
     }
   ],
   "cities": [

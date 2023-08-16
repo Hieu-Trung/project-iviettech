@@ -128,22 +128,16 @@ export const productWrapper = styled.div`
   border-radius: 10px;
 `;
 export const ListProductWrapper = styled.div`
-  -ms-box-orient: horizontal;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -moz-flex;
-  display: -webkit-flex;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   flex-wrap: wrap;
 `;
 
 export const CardCategoryWrapper = styled.div`
-  width: 230px;
+  width: 250px;
   background-color: #f2f2f2;
   height: 350px;
-  margin: 10px 0;
+  margin: 10px;
   border-radius: 10px;
   overflow: hidden;
   padding: 0 10px;

@@ -2,7 +2,7 @@ import * as S from "./style";
 import { Form, Input, message } from "antd";
 import { useDispatch } from "react-redux";
 
-import {adviseRequest} from '../../../redux/slicers/advise.slice'
+import { adviseRequest } from "../../../redux/slicers/advise.slice";
 
 const FormConstruction = () => {
   const [messageApi, contextHolder] = message.useMessage();
@@ -31,7 +31,7 @@ const FormConstruction = () => {
         },
       })
     );
-  }
+  };
   return (
     <S.FormConstructionWrapper>
       <S.BackgroundFormWrapper>
@@ -77,7 +77,7 @@ const FormConstruction = () => {
               },
             ]}
           >
-            <Input placeholder="Nhập số điện thoại" />
+            <Input placeholder="Nhập số điện thoại" maxLength={10} />
           </Form.Item>
           <Form.Item
             label="Địa chỉ"
@@ -95,7 +95,7 @@ const FormConstruction = () => {
             <Input.TextArea placeholder="Yêu cầu" />
           </Form.Item>
           <S.ButtonWrapper>
-            <S.BottomFormWrapper >Gửi</S.BottomFormWrapper>
+            <S.BottomFormWrapper>Gửi</S.BottomFormWrapper>
           </S.ButtonWrapper>
         </Form>
       </S.FormWrapper>

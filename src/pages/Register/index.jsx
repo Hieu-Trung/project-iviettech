@@ -20,7 +20,7 @@ const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const {registerData} = useSelector((state) => state.auth)
+  const { registerData } = useSelector((state) => state.auth);
 
   useEffect(() => {
     if (registerData.error) {
@@ -28,8 +28,8 @@ const Register = () => {
         {
           name: "email",
           errors: [registerData.error],
-        }
-      ])
+        },
+      ]);
     }
   }, [registerData.error]);
   const handleSubmit = (values) => {
@@ -88,6 +88,7 @@ const Register = () => {
             ]}
           >
             <Input
+              maxLength={10}
               prefix={<PhoneOutlined className="site-form-item-icon" />}
               placeholder="Nhập số điện thoại"
               style={{
