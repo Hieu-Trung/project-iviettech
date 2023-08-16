@@ -2,9 +2,20 @@ import * as S from "./style";
 
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useMemo } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { AiFillHome, AiOutlineShoppingCart } from "react-icons/ai";
 
-import { Form, Input, Select, Radio, Row, Col, Space, Table } from "antd";
+import {
+  Form,
+  Input,
+  Select,
+  Radio,
+  Row,
+  Col,
+  Space,
+  Table,
+  Breadcrumb,
+} from "antd";
 
 import {
   getCityListRequest,
@@ -135,6 +146,34 @@ const Checkout = () => {
   );
   return (
     <S.CheckoutWrapper>
+      <Breadcrumb
+        style={{ padding: "20px 0" }}
+        items={[
+          {
+            title: (
+              <Link to={ROUTES.USER.HOME}>
+                <Space>
+                  <AiFillHome />
+                  <span>Trang chủ</span>
+                </Space>
+              </Link>
+            ),
+          },
+          {
+            title: (
+              <Link to={ROUTES.USER.CART}>
+                <Space>
+                  <AiOutlineShoppingCart />
+                  <span>Giỏ hàng</span>
+                </Space>
+              </Link>
+            ),
+          },
+          {
+            title: "Thủ tục thanh toán",
+          },
+        ]}
+      />
       <h2>Thông tin thanh toán</h2>
 
       <Form
@@ -171,7 +210,7 @@ const Checkout = () => {
                   name="phoneNumber"
                   rules={[{ required: true, message: "Required!" }]}
                 >
-                  <Input />
+                  <Input maxLength={10} />
                 </Form.Item>
               </Col>
               <Col span={8}>

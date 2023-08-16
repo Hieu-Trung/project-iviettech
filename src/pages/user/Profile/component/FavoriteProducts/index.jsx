@@ -1,7 +1,7 @@
 import * as S from "./style";
 
 import { useEffect, useMemo } from "react";
-import { Link, generatePath } from "react-router-dom";
+import { generatePath } from "react-router-dom";
 import { Row, Col, Spin } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 

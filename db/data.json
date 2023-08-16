@@ -10,6 +10,15 @@
       "id": 1,
       "phoneNumber": "0333709228",
       "birthday": 932437555646
+    },
+    {
+      "email": "jennypham5464@gmail.com",
+      "password": "$2a$10$dnvu212JndUSqSqZ.q2ITe1IxUXNKfpQEMUmYmaR6AfadmiOxjNam",
+      "fullName": "Hiếu",
+      "numberPhone": "0333709228",
+      "createdAt": 1692173158112,
+      "updatedAt": 1692173158112,
+      "id": 2
     }
   ],
   "advise": [],
@@ -146,6 +155,15 @@
       "createdAt": 1692166977431,
       "updatedAt": 1692166977431,
       "id": 1
+    },
+    {
+      "rate": 4,
+      "comment": "sản phẩm đẹp",
+      "userId": 1,
+      "productId": 2,
+      "createdAt": 1692173112114,
+      "updatedAt": 1692173112115,
+      "id": 2
     }
   ],
   "orders": [],
@@ -157,6 +175,13 @@
       "createdAt": 1692166966203,
       "updatedAt": 1692166966204,
       "id": 1
+    },
+    {
+      "productId": 2,
+      "userId": 1,
+      "createdAt": 1692173059310,
+      "updatedAt": 1692173059311,
+      "id": 2
     }
   ],
   "cities": [

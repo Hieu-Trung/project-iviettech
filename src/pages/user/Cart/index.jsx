@@ -1,9 +1,9 @@
 import * as S from "./style";
 
 import { useSelector, useDispatch } from "react-redux";
-import { Table, InputNumber } from "antd";
-import { useNavigate } from "react-router-dom";
-import { AiFillDelete } from "react-icons/ai";
+import { Table, InputNumber, Breadcrumb, Space } from "antd";
+import { useNavigate, Link } from "react-router-dom";
+import { AiFillDelete, AiFillHome } from "react-icons/ai";
 
 import { ROUTES } from "../../../constants/routers";
 import {
@@ -90,6 +90,23 @@ const Cart = () => {
   ];
   return (
     <S.CartListWrapper>
+      <Breadcrumb
+        items={[
+          {
+            title: (
+              <Link to={ROUTES.USER.HOME}>
+                <Space>
+                  <AiFillHome />
+                  <span>Trang chủ</span>
+                </Space>
+              </Link>
+            ),
+          },
+          {
+            title: "Giỏ hàng",
+          },
+        ]}
+      />
       <h2 style={{ marginBottom: 24 }}>Giỏ hàng</h2>
 
       <Table
