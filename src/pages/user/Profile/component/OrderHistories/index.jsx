@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Table } from "antd";
+import { Table, Col, Row } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
 
@@ -29,6 +29,7 @@ const OrderHistories = () => {
       key: "orderDetails",
       render: (orderDetails) => `${orderDetails.length} products`,
     },
+
     {
       title: "Tổng tiền",
       dataIndex: "totalPrice",
@@ -49,28 +50,39 @@ const OrderHistories = () => {
         `${item.address}, ${item.wardName}, ${item.districtName}, ${item.cityName}`,
     },
   ];
+  console.log(orderList.data);
 
   return (
-    <Table
-      columns={tableColumns}
-      dataSource={orderList.data}
-      rowKey="id"
-      pagination={false}
-      expandable={{
-        expandedRowRender: (record) => (
-          <ul>
-            {record.orderDetails.map((item) => (
-              <li key={item.id}>
-                {item.name}
-                {` - ${item.price}`}
-                {` - ${item.quantity}`}
-                {` - ${item.price * item.quantity}`}
-              </li>
-            ))}
-          </ul>
-        ),
-      }}
-    />
+    <Row>
+      <Col span={24}>
+        <Table
+          columns={tableColumns}
+          dataSource={orderList.data}
+          rowKey="id"
+          pagination={false}
+          expandable={{
+            expandedRowRender: (record) => (
+              <ul>
+                {record.orderDetails.map((item) => (
+                  <li key={item.id}>
+                    {item.name}
+                    <img
+                      src={` - ${item.image}`}
+                      alt=""
+                      width={70}
+                      height={70}
+                    />
+                    {` - ${item.price}`}
+                    {` - ${item.quantity}`}
+                    {` - ${item.price * item.quantity}`}
+                  </li>
+                ))}
+              </ul>
+            ),
+          }}
+        />
+      </Col>
+    </Row>
   );
 };
 

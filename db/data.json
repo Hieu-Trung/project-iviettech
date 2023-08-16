@@ -3,11 +3,13 @@
     {
       "email": "hieutrungpt2007@gmail.com",
       "password": "$2a$10$ILaq9T/SQh2sL68JVTmdfezz1ayt4Euv7RrX/mhyW6TQbjxh3Sm4q",
-      "fullName": "Trần Hiếu Trung",
+      "fullName": "Trung",
       "numberPhone": "0333709228",
       "createdAt": 1690459459477,
-      "updatedAt": 1691771178746,
-      "id": 1
+      "updatedAt": 1692152848277,
+      "id": 1,
+      "phoneNumber": "0333709228",
+      "birthday": 932437555646
     }
   ],
   "advise": [
@@ -50,7 +52,7 @@
       "name": "Bàn trang điểm",
       "categoryId": 1,
       "price": 2500000,
-      "salePrice": 2000000,
+      "oldPrice": 5000000,
       "id": 1
     },
     {
@@ -58,7 +60,7 @@
       "name": "Bàn trang điểm cửa lùa",
       "categoryId": 1,
       "price": 3500000,
-      "salePrice": 2000000,
+      "oldPrice": 5000000,
       "id": 2
     },
     {
@@ -66,7 +68,7 @@
       "name": "tủ áo",
       "categoryId": 2,
       "price": 2500000,
-      "salePrice": 2000000,
+      "oldPrice": 5000000,
       "id": 3
     },
     {
@@ -74,7 +76,7 @@
       "name": "tủ thờ",
       "categoryId": 2,
       "price": 2500000,
-      "salePrice": 2000000,
+      "oldPrice": 5000000,
       "id": 4
     },
     {
@@ -82,7 +84,7 @@
       "name": "tap giường",
       "categoryId": 3,
       "price": 2500000,
-      "salePrice": 2000000,
+      "oldPrice": 5000000,
       "id": 5
     },
     {
@@ -90,7 +92,7 @@
       "name": "tap trang điểm",
       "categoryId": 3,
       "price": 2500000,
-      "salePrice": 2000000,
+      "oldPrice": 5000000,
       "id": 6
     }
   ],
@@ -153,6 +155,15 @@
       "createdAt": 1692125487909,
       "updatedAt": 1692125487909,
       "id": 16
+    },
+    {
+      "rate": 4,
+      "comment": "sản phẩm đẹp",
+      "userId": 1,
+      "productId": 2,
+      "createdAt": 1692147479854,
+      "updatedAt": 1692147479854,
+      "id": 17
     }
   ],
   "orders": [
@@ -174,6 +185,44 @@
       "createdAt": 1691679403104,
       "updatedAt": 1691679403104,
       "id": 1
+    },
+    {
+      "fullName": "Trần Hiếu Trung",
+      "email": "hieutrungpt2007@gmail.com",
+      "phoneNumber": "0333709228",
+      "cityCode": "79",
+      "districtCode": "771",
+      "wardCode": "27190",
+      "address": "QWERTYUIOP",
+      "paymentMethod": "Thanh toán khi nhận hàng",
+      "cityName": "Thành phố Hồ Chí Minh",
+      "districtName": "Quận 10",
+      "wardName": "Phường 02",
+      "userId": 1,
+      "totalPrice": 24000000,
+      "status": "pending",
+      "createdAt": 1692151006258,
+      "updatedAt": 1692151006258,
+      "id": 2
+    },
+    {
+      "fullName": "Trung",
+      "email": "hieutrungpt2007@gmail.com",
+      "phoneNumber": "0333709228",
+      "cityCode": "01",
+      "districtCode": "001",
+      "wardCode": "00031",
+      "address": "123456",
+      "paymentMethod": "Thanh toán khi nhận hàng",
+      "cityName": "Thành phố Hà Nội",
+      "districtName": "Quận Ba Đình",
+      "wardName": "Phường Giảng Võ",
+      "userId": 1,
+      "totalPrice": 2500000,
+      "status": "pending",
+      "createdAt": 1692153758993,
+      "updatedAt": 1692153758994,
+      "id": 3
     }
   ],
   "orderDetails": [
@@ -186,28 +235,95 @@
       "createdAt": 1691679403178,
       "updatedAt": 1691679403178,
       "id": 1
+    },
+    {
+      "orderId": 2,
+      "productId": 6,
+      "name": "tap trang điểm",
+      "price": 2500000,
+      "quantity": 1,
+      "createdAt": 1692151006364,
+      "updatedAt": 1692151006364,
+      "id": 2
+    },
+    {
+      "orderId": 2,
+      "productId": 4,
+      "name": "tủ thờ",
+      "price": 2500000,
+      "quantity": 1,
+      "createdAt": 1692151006411,
+      "updatedAt": 1692151006411,
+      "id": 3
+    },
+    {
+      "orderId": 2,
+      "productId": 2,
+      "name": "Bàn trang điểm cửa lùa",
+      "price": 3500000,
+      "quantity": 4,
+      "createdAt": 1692151006453,
+      "updatedAt": 1692151006453,
+      "id": 4
+    },
+    {
+      "orderId": 2,
+      "productId": 3,
+      "name": "tủ áo",
+      "price": 2500000,
+      "quantity": 1,
+      "createdAt": 1692151006512,
+      "updatedAt": 1692151006512,
+      "id": 5
+    },
+    {
+      "orderId": 2,
+      "productId": 5,
+      "name": "tap giường",
+      "price": 2500000,
+      "quantity": 1,
+      "createdAt": 1692151006559,
+      "updatedAt": 1692151006560,
+      "id": 6
+    },
+    {
+      "orderId": 3,
+      "productId": 4,
+      "name": "tủ thờ",
+      "price": 2500000,
+      "quantity": 1,
+      "createdAt": 1692153759068,
+      "updatedAt": 1692153759068,
+      "id": 7
     }
   ],
   "favorites": [
     {
       "productId": 2,
       "userId": 1,
-      "createdAt": 1691771002718,
-      "updatedAt": 1691771002718,
-      "id": 2
-    },
-    {
-      "productId": 3,
-      "userId": 1,
-      "createdAt": 1691778603666,
-      "updatedAt": 1691778603666,
-      "id": 3
+      "createdAt": 1692157144627,
+      "updatedAt": 1692157144628,
+      "id": 1
     },
     {
       "productId": 1,
       "userId": 1,
-      "createdAt": 1692120245311,
-      "updatedAt": 1692120245311,
+      "createdAt": 1692157802445,
+      "updatedAt": 1692157802445,
+      "id": 2
+    },
+    {
+      "productId": 4,
+      "userId": 1,
+      "createdAt": 1692157806685,
+      "updatedAt": 1692157806685,
+      "id": 3
+    },
+    {
+      "productId": 5,
+      "userId": 1,
+      "createdAt": 1692157810253,
+      "updatedAt": 1692157810253,
       "id": 4
     }
   ],

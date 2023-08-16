@@ -24,6 +24,8 @@ function Profile() {
     <S.ProfileWrapper>
       <Card bordered={false} size="small">
         <Tabs
+          bordered={false}
+          type="card"
           tabPosition="left"
           items={[
             {

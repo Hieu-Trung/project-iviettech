@@ -1,7 +1,7 @@
 import * as S from "./style";
 
 import { useSelector, useDispatch } from "react-redux";
-import { Table, Card, Row, Col, Button, InputNumber } from "antd";
+import { Table, InputNumber } from "antd";
 import { useNavigate } from "react-router-dom";
 import { AiFillDelete } from "react-icons/ai";
 
@@ -45,7 +45,7 @@ const Cart = () => {
       dataIndex: "image",
       key: "image",
       render: (_, item) => {
-        return <img src={item.image} alt="" width={100} height={100} />;
+        return <img src={item.image} alt="" width={70} height={70} />;
       },
     },
     {

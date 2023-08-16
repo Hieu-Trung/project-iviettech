@@ -1,6 +1,8 @@
+import * as S from "./style";
+
 import { useEffect, useMemo } from "react";
 import { Link, generatePath } from "react-router-dom";
-import { Card, Row, Col, Spin } from "antd";
+import { Row, Col, Spin } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 
 import { ROUTES } from "../../../../../constants/routers";
@@ -26,15 +28,19 @@ function FavoriteProducts() {
     return favoriteList.data.map((item) => {
       return (
         <Col key={item.id} xs={12} xl={8}>
-          <Link
+          <S.LinkWrapper
             to={generatePath(ROUTES.USER.PRODUCT_DETAIL, {
               id: item.product.id,
             })}
           >
-            <Card title={item.product.name} size="small">
-              <p>{item.product.price.toLocaleString()} VND</p>
-            </Card>
-          </Link>
+            <S.LikeProductWrapper>
+              <img src={item.product.image} alt="" width={70} height={70} />
+              <S.DetailProduct>
+                <h3>{item.product.name}</h3>
+                <p>Giá: {item.product.price.toLocaleString()} VND</p>
+              </S.DetailProduct>
+            </S.LikeProductWrapper>
+          </S.LinkWrapper>
         </Col>
       );
     });

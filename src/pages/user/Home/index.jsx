@@ -61,14 +61,17 @@ const Home = () => {
             <S.priceProductWrapper>
               <S.PriceWrapper>
                 <S.PriceOldWrapper>
-                  Giá: {item.price.toLocaleString()} VNĐ
+                  Giá: {item.oldPrice.toLocaleString()} VNĐ
                 </S.PriceOldWrapper>
                 <S.PriceSaleWrapper>
-                  Sale: {item.salePrice.toLocaleString()} VNĐ
+                  Sale: {item.price.toLocaleString()} VNĐ
                 </S.PriceSaleWrapper>
               </S.PriceWrapper>
               <S.PricePercentrapper>
-                {(((item.price - item.salePrice) / item.price) * 100).toFixed()}
+                {(
+                  ((item.oldPrice - item.price) / item.oldPrice) *
+                  100
+                ).toFixed()}
               </S.PricePercentrapper>
             </S.priceProductWrapper>
             <S.DetailProductWrapper>

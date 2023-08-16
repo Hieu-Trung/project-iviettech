@@ -1,3 +1,4 @@
+import { Button } from "antd";
 import { styled } from "styled-components";
 export const CartListWrapper = styled.div`
   margin: 0 auto;
@@ -30,11 +31,10 @@ export const TotalPrice = styled.div`
   }
 `;
 export const ButtonPayWrapper = styled.div``;
-export const BottomPay = styled.button`
+export const BottomPay = styled(Button)`
   width: 100%;
   color: white;
-  background-color: #52c41a;
-  padding: 15px 20px;
+  background-color: #8c8c8c;
   border-radius: 10px;
   border: unset;
   cursor: pointer;

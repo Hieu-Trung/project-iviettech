@@ -228,17 +228,17 @@ const ProductDetail = () => {
           <S.priceProductWrapper>
             <S.PriceWrapper span={12}>
               <S.PriceOldWrapper>
-                Giá: {productDetail.data.price?.toLocaleString()} VNĐ
+                Giá: {productDetail.data.oldPrice?.toLocaleString()} VNĐ
               </S.PriceOldWrapper>
               <S.PriceSaleWrapper>
-                Sale: {productDetail.data.salePrice?.toLocaleString()} VNĐ
+                Sale: {productDetail.data.price?.toLocaleString()} VNĐ
               </S.PriceSaleWrapper>
             </S.PriceWrapper>
             <S.PriceWrapper span={12}>
               <S.PricePercentrapper>
                 {(
-                  ((productDetail.data.price - productDetail.data.salePrice) /
-                    productDetail.data.price) *
+                  ((productDetail.data.oldPrice - productDetail.data.price) /
+                    productDetail.data.oldPrice) *
                   100
                 ).toFixed()}
               </S.PricePercentrapper>
